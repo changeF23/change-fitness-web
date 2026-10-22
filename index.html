@@ -462,6 +462,16 @@ section{position:relative}
 .zone:hover .zm{opacity:.8;transform:scale(1.03)}
 .reel video.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .reel{filter:none}
+
+/* O nás */
+.about{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:stretch;gap:clamp(16px,2.4vw,32px)}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+.about-photo{position:relative;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line)}
+.about-photo .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1);transition:filter .5s,transform .9s var(--ease)}
+.about:hover .about-photo .photo{filter:none;transform:scale(1.02)}
+.about-body{display:grid;gap:20px;align-content:center}
+.about .leads{grid-template-columns:1fr}
+.about .lead-card{grid-template-columns:1fr;padding:22px}
 </style>
 </head>
 <body>
@@ -581,11 +591,14 @@ section{position:relative}
       <div><p class="eyebrow">Trenéři</p><h2 class="h-xl">Lidé, kteří<br><span class="thin">tě posunou.</span></h2></div>
     </div>
     <div class="rail" id="rail"></div>
-    <div class="lead-block">
-      <p class="eyebrow">Za Change Fitness stojí</p>
-      <div class="leads">
-        <article class="lead-card"><div class="lead-por"><img class="photo" src="img/ceo-dominik.jpg" alt="Dominik Suchánek" loading="lazy"></div><div><p class="spec">CEO Change Fitness</p><h3>Dominik Suchánek</h3><p class="lead-contact"><a href="tel:+420736668928">736 668 928</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
-        <article class="lead-card"><div class="lead-por"><img class="photo" src="img/ceo-linda.jpg" alt="Ing. Linda Prokopová" loading="lazy"></div><div><p class="spec">CEO Change Fitness</p><h3>Ing. Linda Prokopová</h3><p class="lead-contact"><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
+    <div class="lead-block about" id="o-nas">
+      <div class="about-photo"><img class="photo" src="img/ceo-o-nas.jpg" alt="Dominik Suchánek a Ing. Linda Prokopová, CEO Change Fitness" loading="lazy"></div>
+      <div class="about-body">
+        <p class="eyebrow">O nás · Za Change Fitness stojí</p>
+        <div class="leads">
+        <article class="lead-card"><div><p class="spec">CEO Change Fitness</p><h3>Dominik Suchánek</h3><p class="lead-contact"><a href="tel:+420736668928">736 668 928</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
+        <article class="lead-card"><div><p class="spec">CEO Change Fitness</p><h3>Ing. Linda Prokopová</h3><p class="lead-contact"><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
+        </div>
       </div>
     </div>
   </div>
