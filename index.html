@@ -456,7 +456,8 @@ section{position:relative}
 /* Media videa */
 .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-photo .bgv{object-position:60% 30%}
-.exp-bg .bgv{z-index:-1;filter:grayscale(1) brightness(.75)}
+.exp-bg .bgv{z-index:-1;filter:grayscale(1) brightness(.6) blur(5px);transform:scale(1.06)}
+.exp-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.62) 55%,rgba(0,0,0,.45) 100%)}
 .zone .zm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;-webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%);transition:opacity .5s,transform .9s var(--ease)}
 .zone:hover .zm{opacity:.8;transform:scale(1.03)}
 .reel video.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -484,7 +485,7 @@ section{position:relative}
 <main id="top">
 <!-- 01 HERO -->
 <section class="hero" aria-label="Úvod">
-  <div class="hero-photo"><video class="bgv" data-lazy="media/video/hero.mp4" poster="img/hero.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="hero-bg"></div><div class="hero-scan"></div><div class="hero-dia"></div><div class="grain"></div>
+  <div class="hero-photo"><video class="bgv" data-lazy="media/video/hero-gym.mp4" poster="media/video/hero-gym.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="hero-bg"></div><div class="hero-scan"></div><div class="hero-dia"></div><div class="grain"></div>
   <div class="wrap hero-inner">
     <h1><span>Unlock</span><span>your next</span><span>level.</span></h1>
     <div class="hero-row">
@@ -540,7 +541,7 @@ section{position:relative}
 
 <!-- 04 EXPERIENCE -->
 <section class="sec exp" id="fitness">
-  <div class="exp-bg"><video class="bgv" data-lazy="media/int/silova-zona.mp4" poster="media/int/silova-zona.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="grain"></div>
+  <div class="exp-bg"><video class="bgv" data-lazy="media/int/kettlebelly-wide.mp4" poster="media/int/kettlebelly-wide.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="grain"></div>
   <div class="wrap exp-grid">
     <div style="display:grid;gap:28px">
       <p class="eyebrow">Fitness experience</p>
@@ -633,7 +634,7 @@ section{position:relative}
     <div class="price-grid">
       <div class="plan"><h3>Členství</h3><p>Měsíční, čtvrtletní, půlroční i roční. Happy hours a studenti/senioři za zvýhodněnou cenu.</p><div class="amt">od 1 200<small>Kč / měsíc</small></div></div>
       <div class="plan"><h3>Jednorázový vstup</h3><p>Přijď si zatrénovat, kdy se ti to hodí. Happy hours (všední dny 9–13) a studenti/senioři 130 Kč.</p><div class="amt">165<small>Kč</small></div></div>
-      <div class="plan"><h3>Skupinové lekce</h3><p>10 lekcí za 1 950 Kč. S Multisport kartou nebo 10vstupovou permanentkou doplatek 100 Kč.</p><div class="amt">220<small>Kč / lekce</small></div></div>
+      <div class="plan"><h3>Skupinové lekce</h3><p>Lekce stojí 220 Kč. Box, Hybrid Workout a Kickbox 265 Kč. 10 lekcí za 1 950 Kč. S Multisport kartou doplatek 100 Kč.</p><div class="amt">od 220<small>Kč / lekce</small></div></div>
       <div class="plan"><h3>Osobní trénink</h3><p>Individuálně, ve dvou nebo ve třech. Cenu ti řekne přímo trenér.</p><div class="amt" style="font-size:1.6rem">Individuálně</div></div>
     </div>
     <div class="price-list">
@@ -743,11 +744,18 @@ const S=[
 
 // Grouped cards for the homepage
 const G=[
- {id:'hybrid',img:'hybrid',feat:true,name:'Hybrid Workout',split:['Hybrid','Workout.'],tags:'Síla / Vytrvalost / Kondice',cat:'sila',c:'#5F7896',int:3,
-  short:'Síla a kondice v jednom. Inspirace závody HYROX: běh, nošení zátěže, výpady s pytlem, hody medicinbalem.',
-  long:'Hybridní trénink kombinuje silová cvičení s kondicí a vytrvalostí. Inspiruje se závody HYROX, kde se střídá běh s funkčními stanovišti – třeba nošením zátěže, výpady s pytlem nebo hody medicinbalem. Výsledkem je všestranná kondice: budeš silnější, vydržíš déle a tělo zvládne, co mu život připraví.',
-  who:'Pro každého, kdo chce všestrannou kondici. Začátečníci jedou svým tempem, pokročilí se připraví na HYROX.',
-  what:'90 minut střídání běhu a funkčních stanovišť. Pořádně si mákneš.',bring:'Pití, ručník, boty na běh i na stanoviště.',progs:['hybrid']},
+ {id:'trx',img:'trx',feat:true,name:'TRX',tags:'Síla / Stabilita / Core',cat:'sila',c:'#1B9447',int:2,
+  short:'Závěsné popruhy a vlastní váha. Čím víc se nakloníš, tím víc makáš.',
+  long:'TRX je závěsný posilovací systém: dva nastavitelné popruhy ukotvené nahoře, se kterými cvičíš jen s vlastní vahou. Obtížnost měníš tím, jak se postavíš. U každého cviku držíš tělo zpevněné, takže kromě rukou, nohou a zad pořádně zapracuje i střed těla.',
+  who:'Na stejné lekci si zacvičí začátečník i pokročilý.',what:'Síla, stabilita a lepší držení těla s vlastní vahou.',bring:'Pohodlné oblečení, pití.',progs:['trx']},
+ {id:'kickbox',img:'kickbox',name:'Kickbox',tags:'Technika / Kopy / Kondice',cat:'box',c:'#3598DB',int:3,
+  short:'Údery z boxu a kopy. Vede Libor Macháň, 7. dan a čtyřnásobný mistr světa.',
+  long:'Kickbox spojuje údery rukama z boxu s kopy. Na lekci se naučíš správnou techniku, kryt a práci nohou – a pak to všechno pustíš do lap a pytlů. Parádní kondice, posílíš celé tělo a nic tak dobře nevyčistí hlavu po náročném dni.',
+  who:'Pro všechny, kdo chtějí bojový sport s dobrým vedením.',what:'75 minut techniky, krytu, kopů a práce na lapách.',bring:'Bandáže a rukavice (pokud máš), pití, ručník.',progs:['kick']},
+ {id:'padesat',img:'padesat',name:'50+',tags:'Lokomoce · Vital Age',cat:'padesat',c:'#FF7F50',int:1,
+  short:'Síla, rovnováha a zdravá záda v každém věku. Cvičení přizpůsobené možnostem každého.',
+  long:'Lekce pro všechny, kdo chtějí zůstat silní, pohybliví a soběstační. Vital Age 50+ cílí na sílu, zdravá záda a pevný střed těla. Lokomoce Aktiv 50+ přidává kruhový trénink a vedené silové cvičení. Lokomoce Start 65+ rozvíjí pohyblivost, stabilitu a rovnováhu – i pro ty, kdo se k pohybu vracejí po delší pauze.',
+  who:'50+ a 65+. Cviky přizpůsobujeme individuálním potřebám. První lekce Lokomoce je ukázková.',what:'Funkční pohyb, síla, rovnováha. Lokomoce vede pobočný spolek Lokomoce Tišnov.',bring:'Pohodlné oblečení, pití.',price:'Lokomoce 2 500 Kč / pololetí',progs:['vital','aktiv','start']},
  {id:'pilates',img:'pilates',name:'Power Pilates',tags:'Core / Mobilita / Kontrola',cat:'pilates',c:'#FEC8DF',int:2,
   short:'Pilates s trochou víc ohně. Hluboký střed těla, držení těla a dech, k tomu tempo a silové prvky.',
   long:'Pilates posiluje hluboké svaly středu těla, zlepšuje držení těla a učí tě pracovat s dechem a kontrolou pohybu. V power verzi přidáváme tempo a silové prvky, takže se u toho pořádně zapotíš – a přitom šetrně ke kloubům.',
@@ -761,18 +769,15 @@ const G=[
   short:'Krátké úseky naplno, krátký odpočinek. Ve čtvrtek ráno, nebo v pátek večer jako HIIT Party.',
   long:'HIIT (High Intensity Interval Training) je intervalový trénink, ve kterém se střídají krátké úseky naplno s krátkým odpočinkem. Je to jeden z nejefektivnějších způsobů, jak v krátkém čase zlepšit kondici. Ranní varianta nastartuje den dřív, než se rozkouká zbytek Tišnova. Friday HIIT Party zakončí týden s hlasitou hudbou a partou lidí.',
   who:'Nováčci i stálice – intervaly si každý jede na své maximum.',what:'Intervaly naplno s pauzami. V pátek s party atmosférou a střídáním trenérů.',bring:'Pití, ručník, boty s dobrou oporou.',progs:['rhiit','fhiit']},
- {id:'trx',img:'trx',name:'TRX',tags:'Síla / Stabilita / Core',cat:'sila',c:'#1B9447',int:2,
-  short:'Závěsné popruhy a vlastní váha. Čím víc se nakloníš, tím víc makáš.',
-  long:'TRX je závěsný posilovací systém: dva nastavitelné popruhy ukotvené nahoře, se kterými cvičíš jen s vlastní vahou. Obtížnost měníš tím, jak se postavíš. U každého cviku držíš tělo zpevněné, takže kromě rukou, nohou a zad pořádně zapracuje i střed těla.',
-  who:'Na stejné lekci si zacvičí začátečník i pokročilý.',what:'Síla, stabilita a lepší držení těla s vlastní vahou.',bring:'Pohodlné oblečení, pití.',progs:['trx']},
+ {id:'hybrid',img:'hybrid',name:'Hybrid Workout',split:['Hybrid','Workout.'],tags:'Síla / Vytrvalost / Kondice',cat:'sila',c:'#5F7896',int:3,
+  short:'Síla a kondice v jednom. Inspirace závody HYROX: běh, nošení zátěže, výpady s pytlem, hody medicinbalem.',
+  long:'Hybridní trénink kombinuje silová cvičení s kondicí a vytrvalostí. Inspiruje se závody HYROX, kde se střídá běh s funkčními stanovišti – třeba nošením zátěže, výpady s pytlem nebo hody medicinbalem. Výsledkem je všestranná kondice: budeš silnější, vydržíš déle a tělo zvládne, co mu život připraví.',
+  who:'Pro každého, kdo chce všestrannou kondici. Začátečníci jedou svým tempem, pokročilí se připraví na HYROX.',
+  what:'90 minut střídání běhu a funkčních stanovišť. Pořádně si mákneš.',bring:'Pití, ručník, boty na běh i na stanoviště.',progs:['hybrid']},
  {id:'box',img:'box',name:'Box',tags:'Kondice / Technika / Energie',cat:'box',c:'#E64D3D',int:3,
   short:'Údery, kryt, práce nohou. Lapy, pytle a pořádná kondiční nálož.',
   long:'Box není jen o síle úderu. Je to technika, práce nohou, rychlost reakce a kondice, kterou oceníš i mimo ring. Na lekci se naučíš základní údery, kryt a pohyb, zatrénuješ si na lapách a pytlech a k tomu dostaneš pořádnou kondiční nálož.',
   who:'Pro každého, kdo chce kondici a vyčistit si hlavu.',what:'Technika, lapy, pytle, kondice.',bring:'Bandáže a rukavice (pokud máš), pití, ručník.',progs:['box']},
- {id:'kickbox',img:'kickbox',name:'Kickbox',tags:'Technika / Kopy / Kondice',cat:'box',c:'#3598DB',int:3,
-  short:'Údery z boxu a kopy. Vede Libor Macháň, 7. dan a čtyřnásobný mistr světa.',
-  long:'Kickbox spojuje údery rukama z boxu s kopy. Na lekci se naučíš správnou techniku, kryt a práci nohou – a pak to všechno pustíš do lap a pytlů. Parádní kondice, posílíš celé tělo a nic tak dobře nevyčistí hlavu po náročném dni.',
-  who:'Pro všechny, kdo chtějí bojový sport s dobrým vedením.',what:'75 minut techniky, krytu, kopů a práce na lapách.',bring:'Bandáže a rukavice (pokud máš), pití, ručník.',progs:['kick']},
  {id:'fitbox',img:'fitbox',name:'Fitbox',tags:'Kardio / Údery / Rytmus',cat:'box',c:'#AAE6CD',int:2,
   short:'Údery a kopy do pytlů v rytmu hudby. Kardio a úleva od stresu.',
   long:'Fitbox je kondiční lekce inspirovaná bojovými sporty. Údery a kopy do pytlů a lap v rytmu hudby – jen ty, pořádná dávka kardia a úleva od stresu. Posílíš celé tělo, zlepšíš kondici i koordinaci a odejdeš s vyčištěnou hlavou.',
@@ -781,35 +786,31 @@ const G=[
   short:'Stanoviště na čas, pak hurá na další. Ideální tečka za víkendem.',
   long:'Kruhový trénink = několik stanovišť, na každém jeden cvik na čas, a pak hurá na další. Vystřídáš sílu, kondici i práci s vlastní vahou a zapojíš celé tělo. Čas letí, nuda nehrozí a každý jede svým tempem.',
   who:'Každý jede svým tempem – vhodné i pro začátečníky.',what:'Stanoviště s posilováním, kondicí a vlastní vahou.',bring:'Pití, ručník.',progs:['kruhac']},
- {id:'padesat',img:'padesat',name:'50+',tags:'Lokomoce · Vital Age',cat:'padesat',c:'#FF7F50',int:1,
-  short:'Síla, rovnováha a zdravá záda v každém věku. Cvičení přizpůsobené možnostem každého.',
-  long:'Lekce pro všechny, kdo chtějí zůstat silní, pohybliví a soběstační. Vital Age 50+ cílí na sílu, zdravá záda a pevný střed těla. Lokomoce Aktiv 50+ přidává kruhový trénink a vedené silové cvičení. Lokomoce Start 65+ rozvíjí pohyblivost, stabilitu a rovnováhu – i pro ty, kdo se k pohybu vracejí po delší pauze.',
-  who:'50+ a 65+. Cviky přizpůsobujeme individuálním potřebám. První lekce Lokomoce je ukázková.',what:'Funkční pohyb, síla, rovnováha. Lokomoce vede pobočný spolek Lokomoce Tišnov.',bring:'Pohodlné oblečení, pití.',price:'Lokomoce 2 500 Kč / pololetí',progs:['vital','aktiv','start']},
  {id:'deti',img:'deti',name:'Dětské lekce',tags:'Lokomoce děti · Děti CHF',cat:'deti',c:'#FEF5BA',int:1,
   short:'Radost z pohybu, ne výkon. Zatímco děti cvičí, ty si můžeš dát trénink ve fitku.',
   long:'Pohybové lekce pro děti, kde hlavní roli hraje radost z pohybu. Přes hry a zábavné úkoly rozvíjíme koordinaci, obratnost a sílu. Lokomoce „Hýbej se, rodino!“ pro děti 3–4 a 5–7 let propojuje fyzioterapii a pohybovou terapii. Děti – Change Fitness jsou pro děti 8–11 let.',
   who:'Děti 3–4, 5–7 a 8–11 let.',what:'Hry, koordinace, obratnost, síla.',bring:'Sportovní oblečení, pití, přezůvky.',price:'Lokomoce 2 500 Kč · Děti CHF 2 950 Kč / pololetí',progs:['l34','l57','dchf']}
 ];
 
+// Osobní trenéři podle pobočky (b: T = Tišnov, K = Kuřim)
 const COACHES=[
- {n:'Kamila Juříčková',mail:'k.jurickova@changefitness.cz',img:'kamila',i:'KJ',spec:'Hybrid · HIIT · Děti',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.'},
- {n:'Andrea Tobiaszová',mail:'a.tobiaszova@changefitness.cz',img:'andrea',i:'AT',spec:'Síla · Zdravá záda · 50+',c:'#FF7F50',q:'Funkční pohyb v každém věku.',pt:true},
- {n:'Aneta Julinková',mail:'a.julinkova@changefitness.cz',img:'julinkova',i:'AJ',spec:'Power Pilates · DNS · Booty',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.'},
- {n:'Bc. Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',spec:'Fitbox · Booty · Síla',c:'#F7557E',q:'Disciplína je víc než motivace.',pt:true},
- {n:'Libor Macháň',img:'machan',i:'LM',spec:'Kickbox · Taekwondo',c:'#3598DB',q:'7. dan Taekwon-do, 4× mistr světa, 30 let trenérské praxe.'},
- {n:'Petr Vlk',mail:'p.vlk@changefitness.cz',img:'vlk',i:'PV',spec:'TRX',c:'#1B9447'},
- {n:'Vašek Říha',mail:'v.riha@changefitness.cz',i:'VŘ',spec:'Osobní trenér · Tišnov',c:'#706E6E',img:'vasek'},
- {n:'Jan Bezvoda',img:'bezvoda',i:'JB',spec:'Box',c:'#E64D3D'},
- {n:'Mgr. Zuzana Sokolová',i:'ZS',spec:'Lokomoce 50+ · 65+',c:'#D0EC01'},
- {n:'Petra Knoflíčková',i:'PK',spec:'Lokomoce děti',c:'#DEFD01'}
+ {n:'Vašek Říha',mail:'v.riha@changefitness.cz',img:'vasek',i:'VŘ',c:'#706E6E',b:['T']},
+ {n:'Kamila Juříčková',mail:'k.jurickova@changefitness.cz',img:'kamila',i:'KJ',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.',b:['T']},
+ {n:'Andrea Tobiaszová',mail:'a.tobiaszova@changefitness.cz',img:'andrea',i:'AT',c:'#FF7F50',q:'Funkční pohyb v každém věku.',b:['T']},
+ {n:'Bc. Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
+ {n:'Aneta Julinková',mail:'a.julinkova@changefitness.cz',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K']},
+ {n:'Martin Tříska',i:'MT',c:'#3598DB',b:['K']},
+ {n:'Petr Vlk',mail:'p.vlk@changefitness.cz',img:'vlk',i:'PV',c:'#1B9447',b:['K']}
 ];
+// Lektoři skupinových lekcí, kteří nejsou osobní trenéři (jen pro počet ve statistice)
+const LEKTORI=['Libor Macháň','Jan Bezvoda','Mgr. Zuzana Sokolová','Petra Knoflíčková'];
 
 const ZONES=[
  ['Silová zóna','Stroje GRÜN SPORT na všechny svalové partie, lavice, jednoručky až do 50 kg, multifunkční věž a klec na dřepy.','#5F7896','v:int/stroje'],
  ['Skupinové lekce','Nový sál pro Hybrid Workout, Power Pilates, HIIT, TRX, box a další lekce.','#F7557E','f:int/sal-change-yourself'],
  ['Cardio','Nová cardio zóna s běžeckými pásy Life Fitness.','#B28DFF','f:int/welcome-wall'],
  ['Funkční zóna','Air bike, veslo, SkiErg, sáně, lana, pneumatiky, kettlebelly a těžké medicinbaly.','#1B9447','v:int/funkcni-zona'],
- ['Osobní tréninky','Individuálně, ve dvou nebo ve třech. Ceny podle trenéra.','#FF7F50','v:int/rack'],
+ ['Osobní tréninky','Individuálně, ve dvou nebo ve třech. Ceny podle trenéra.','#FF7F50','v:int/trening-slecny'],
  ['Šatny & zázemí','Šatny se zámky na kód, káva a posezení na recepci, terasa.','#3598DB','f:int/satny-neon']
 ];
 
@@ -885,7 +886,7 @@ function renderDays(){
 $('#days').addEventListener('click',e=>{const b=e.target.closest('.day');if(!b)return;dayOff=+b.dataset.k;renderDays();renderSlots()});
 function renderSlots(){
   const now=new Date();const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+dayOff);
-  $('#qbWhen').textContent=dayOff===0?'dnes?':dayOff===1?'zítra?':'v '+(['neděli','pondělí','úterý','středu','čtvrtek','pátek','sobotu'][d.getDay()])+'?';
+  $('#qbWhen').textContent=dayOff===0?'dnes?':dayOff===1?'zítra?':([3,4].includes(d.getDay())?'ve ':'v ')+(['neděli','pondělí','úterý','středu','čtvrtek','pátek','sobotu'][d.getDay()])+'?';
   const list=S.filter(s=>s.d===d.getDay()&&s.branch===branch).sort((a,b)=>toMin(a.s)-toMin(b.s));
   if(!list.length){
     $('#slots').innerHTML=branch==='K'?`<div class="empty"><b>Kuřim</b><span>Skupinové lekce zatím vypisujeme jen v Tišnově. V Kuřimi je pro tebe posilovna, funkční zóna a osobní trenéři.</span><button type="button" class="btn ghost" data-switch="T">Zobrazit lekce v Tišnově</button></div>`:`<div class="empty"><b>Dnes volno</b><span>Tento den nemáme skupinové lekce. Fitko je otevřené.</span></div>`;return}
@@ -922,22 +923,24 @@ function renderLocs(){
 
 // static renders
 $('#zones').innerHTML=ZONES.map(([n,t,c,m])=>{const[k,p]=(m||'').split(':');const md=!m?'':k==='v'?`<video class="zm" data-lazy="media/${p}.mp4" poster="media/${p}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>`:`<img class="zm" src="media/${p}.webp" alt="" loading="lazy">`;return `<div class="zone" style="--c:${c}">${md}<h3>${n}</h3><p>${t}</p></div>`}).join('');
-$('#rail').innerHTML=COACHES.map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
+function renderCoaches(){
+$('#rail').innerHTML=COACHES.filter(c=>c.b.includes(branch)).map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
   <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
-  <div class="coach-body"><p class="spec">${esc(c.spec)}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
+  <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
   ${c.mail?`<div class="coach-links"><a class="link-cta" href="mailto:${c.mail}">Chci trénovat <span>→</span></a></div>`:''}</div></article>`).join('');
+}
 fetch('shop/products.json').then(r=>r.json()).then(d=>{const by={};d.produkty.forEach(p=>by[p.id]=p);
  $('#products').innerHTML=d.doporucene.map(id=>by[id]).filter(p=>p&&!p.skryt&&!p.koncept).map(p=>{const f=p.media.find(m=>m.typ==='foto'),v=p.media.find(m=>m.typ==='video'),src=f?f.src:(v?v.nahled:'');
  return `<a class="prod" href="shop/#${p.kategorie}"><div class="prod-img">${src?`<img src="${src.replace(/^\//,'')}" alt="${esc(p.nazev)}" loading="lazy">`:`<b>${esc(p.nazev)}</b>`}</div><div class="prod-body"><small>${esc(p.znacka)}</small><b>${esc(p.nazev)}</b><span class="price">${p.cena} Kč</span></div></a>`}).join('');}).catch(()=>{});
 $('#statSessions').textContent=S.length;
-$('#statCoaches').textContent=COACHES.length;
+$('#statCoaches').textContent=COACHES.length+LEKTORI.length;
 
 // reviews dots
 document.querySelector('.qdots')?.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('.qdots button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
 
 // branch
 function setBranch(b){branch=b;try{localStorage.setItem('cf-branch',b)}catch(e){}
-  document.querySelectorAll('[data-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.branch===b));renderGrid();renderSlots();renderLocs()}
+  document.querySelectorAll('[data-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.branch===b));renderGrid();renderSlots();renderLocs();renderCoaches()}
 document.querySelectorAll('[data-branch]').forEach(x=>x.addEventListener('click',()=>setBranch(x.dataset.branch)));
 
 // drawer
@@ -994,7 +997,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!scrim.hidden)close
 
 // init
 document.querySelectorAll('[data-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.branch===branch));
-renderGrid();renderDays();renderSlots();renderLocs();
+renderGrid();renderDays();renderSlots();renderLocs();renderCoaches();
 if(PB==='kurim'||PB==='tisnov'){setTimeout(()=>{const el=document.getElementById('pobocky');if(el)el.scrollIntoView()},300)}
 })();
 

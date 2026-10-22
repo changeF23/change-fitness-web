@@ -114,6 +114,12 @@ img,video{display:block;max-width:100%}
 .ph::after{content:"Foto připravujeme";position:absolute;bottom:12px;left:0;right:0;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,234,230,.3);font-weight:600}
 .badge{position:absolute;top:10px;left:10px;z-index:2;display:flex;gap:6px;flex-wrap:wrap}
 .badge span{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:.45em .7em;background:rgba(0,0,0,.66);backdrop-filter:blur(6px);border:1px solid var(--line-2)}
+.badge .tag{background:var(--white);color:var(--ink);border-color:var(--white)}
+.teaser{position:relative;overflow:hidden;border:1px solid var(--line-2);margin-top:clamp(18px,2.4vw,28px);padding:clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#1d1a1b,#000 70%)}
+.teaser::before{content:"";position:absolute;right:-50px;bottom:-70px;width:200px;height:200px;border:1.5px solid var(--line-2);transform:rotate(45deg)}
+.teaser h3{font-family:var(--head);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1;margin:8px 0 10px}
+.teaser p{margin:0;color:var(--mute);max-width:52ch}
+.teaser .btn{position:relative}
 .badge .draft{background:var(--ph);color:#1a1712;border-color:var(--ph)}
 .card-body{padding:14px 14px 16px;display:grid;gap:3px;flex:1;align-content:start}
 .card-body small{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);font-weight:600;min-height:1em}
@@ -315,7 +321,7 @@ function priceHTML(p){return p.cena!=null?`${kc(p.cena)}<small>Kč</small>`:''}
 
 function card(p){
   const c=cover(p),v=firstVideo(p),vars=p.varianty.length?p.varianty.map(x=>x.nazev).join(' · '):'';
-  const badges=[p.koncept?'<span class="draft">Koncept</span>':'',v&&HOVER&&!RM?'<span>Video</span>':''].join('');
+  const badges=[p.koncept?'<span class="draft">Koncept</span>':'',p.stitek?`<span class="tag">${esc(p.stitek)}</span>`:'',v&&HOVER&&!RM?'<span>Video</span>':''].join('');
   return `<article class="card reveal" data-id="${esc(p.id)}">
     <div class="card-media">${badges?`<div class="badge">${badges}</div>`:''}
       ${c?`<img src="${esc(c)}" alt="${esc(p.nazev)}" loading="lazy" decoding="async" width="747" height="1000">`:`<div class="ph"><b>${esc(p.nazev)}</b></div>`}
@@ -326,13 +332,15 @@ function card(p){
   </article>`;
 }
 
+function teaserHTML(cat){const x=DATA.teaser;if(!x||x.za_kategorii!==cat)return '';
+  return `<aside class="teaser" aria-label="${esc(x.nadpis)}"><div><p class="eyebrow">${esc(x.nadtitulek)}</p><h3>${esc(x.nadpis)}</h3><p>${esc(x.text)}</p></div><a class="btn ghost" href="${esc(x.odkaz)}" target="_blank" rel="noopener">${esc(x.tlacitko)} <span aria-hidden="true">→</span></a></aside>`}
 function render(){
   const prods=DATA.produkty.filter(p=>!p.skryt&&(SHOW_DRAFT||!p.koncept));
   prods.forEach(p=>BY[p.id]=p);
   const cats=DATA.kategorie.filter(k=>prods.some(p=>p.kategorie===k.id));
   $('#filters').innerHTML=`<button class="chip" type="button" aria-pressed="true" data-f="vse">Vše<small>${prods.length}</small></button>`+cats.map(k=>`<button class="chip" type="button" aria-pressed="false" data-f="${k.id}">${esc(k.nazev)}<small>${prods.filter(p=>p.kategorie===k.id).length}</small></button>`).join('');
   $('#strip').innerHTML=cats.map(k=>`<a href="#nabidka" data-f="${k.id}"><b>${esc(ART[k.id]||k.nazev)}</b>${prods.filter(p=>p.kategorie===k.id).length} položek</a>`).join('');
-  $('#catalog').innerHTML=cats.map(k=>`<div class="cat-block" data-cat="${k.id}"><div class="cat-title"><h3>${esc(k.nazev)}</h3><span>${prods.filter(p=>p.kategorie===k.id).length} položek</span></div><div class="grid">${prods.filter(p=>p.kategorie===k.id).map(card).join('')}</div></div>`).join('');
+  $('#catalog').innerHTML=cats.map(k=>`<div class="cat-block" data-cat="${k.id}"><div class="cat-title"><h3>${esc(k.nazev)}</h3><span>${prods.filter(p=>p.kategorie===k.id).length} položek</span></div><div class="grid">${prods.filter(p=>p.kategorie===k.id).map(card).join('')}</div>${teaserHTML(k.id)}</div>`).join('');
   // poukazy
   const pk=DATA.poukazy||{};
   $('#vals').innerHTML=(pk.hodnotove||[]).map(v=>`<div class="val"><span>Poukaz v hodnotě</span><b>${kc(v)} Kč</b></div>`).join('');
@@ -378,7 +386,7 @@ function showMedia(m){
 function openDet(id){
   const p=BY[id];if(!p)return;
   $('#detBody').innerHTML=`${p.koncept?`<div class="draft-box">Koncept – ${esc(p.poznamka_interni||'údaje čekají na ověření')} Na ostrém webu se nezobrazí.</div>`:''}
-    <small>${esc(p.znacka||'')}</small><h2 id="det-h">${esc(p.nazev)}</h2><span class="price">${priceHTML(p)}</span>
+    ${p.stitek?`<div class="det-vars"><span>${esc(p.stitek)}</span></div>`:''}<small>${esc(p.znacka||'')}</small><h2 id="det-h">${esc(p.nazev)}</h2><span class="price">${priceHTML(p)}</span>
     ${p.popis?`<p>${esc(p.popis)}</p>`:''}
     ${p.varianty.length?`<div><small>Varianty</small><div class="det-vars" style="margin-top:8px">${p.varianty.map(x=>`<span>${esc(x.nazev)}</span>`).join('')}</div></div>`:''}
     <div class="det-note">K dostání na recepci Change Fitness. Dostupnost se může měnit – rádi ti poradíme na místě.</div>`;

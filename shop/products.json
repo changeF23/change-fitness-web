@@ -1,5 +1,5 @@
 {
- "_navod": "Pořadí produktů = pořadí v seznamu. Pořadí médií = pořadí v poli media (první je hlavní). skryt:true produkt schová. koncept:true = neověřené údaje, na webu se nezobrazí.",
+ "_navod": "Pořadí produktů = pořadí v seznamu. Pořadí médií = pořadí v poli media (první je hlavní). skryt:true produkt schová. koncept:true = neověřené údaje, na webu se nezobrazí. stitek = krátký štítek na kartě (např. Pouze letní sezóna).",
  "kategorie": [
   {
    "id": "kava",
@@ -77,7 +77,8 @@
     }
    ],
    "skryt": false,
-   "koncept": false
+   "koncept": false,
+   "stitek": "Pouze letní sezóna"
   },
   {
    "id": "proteinova-ledova-kava",
@@ -100,7 +101,8 @@
     }
    ],
    "skryt": false,
-   "koncept": false
+   "koncept": false,
+   "stitek": "Pouze letní sezóna"
   },
   {
    "id": "ginger-shot",
@@ -561,5 +563,13 @@
   "elevate",
   "kava-250g",
   "shaker"
- ]
+ ],
+ "teaser": {
+  "za_kategorii": "kava",
+  "nadtitulek": "Novinka v Tišnově",
+  "nadpis": "Ledničky Smokies Healthy",
+  "text": "V Change Fitness Tišnov najdeš naše ledničky od Smokies Healthy. Co v nich zrovna je, uvidíš na jejich Instagramu.",
+  "tlacitko": "@smokies_healthy",
+  "odkaz": "https://www.instagram.com/smokies_healthy/"
+ }
 }
