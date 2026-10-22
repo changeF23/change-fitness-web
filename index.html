@@ -401,9 +401,11 @@ section{position:relative}
 .card.has-photo:hover .card-media::before{opacity:0}
 .card.has-photo .card-big{display:none}
 .card.has-photo .card-media::after{z-index:1}
-.hero-photo{position:absolute;inset:0;z-index:-2;background:url(img/hero.jpg) 50% 25%/cover no-repeat;filter:grayscale(1) contrast(1.1) brightness(.62)}
+.hero-photo{position:absolute;inset:0;z-index:-2;background:url(img/hero.jpg) 60% 18%/cover no-repeat;filter:grayscale(1) contrast(1.1) brightness(.6)}
 .hero-bg{opacity:.7;mix-blend-mode:multiply}
-@media (min-width:900px){.hero-photo{left:35%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}}
+@media (min-width:900px){.hero-photo{left:22%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}}
+.final-photo{position:absolute;inset:0;z-index:-1;background:url(img/neon.jpg) center 42%/cover no-repeat;opacity:.42}
+@media (min-width:900px){.final-photo{left:46%;opacity:.6;-webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}}
 .coach-por .photo{object-position:50% 20%}
 .coach-por::before{z-index:1}
 .coach.has-photo .coach-por b{display:none}
@@ -650,7 +652,7 @@ section{position:relative}
 
 <!-- 13 FINAL CTA -->
 <section class="sec final">
-  <div class="final-bg"></div><div class="grain"></div>
+  <div class="final-bg"></div><div class="final-photo" role="img" aria-label="Neon Change Yourself ve fitku"></div><div class="grain"></div>
   <div class="wrap">
     <h2><span>Change</span><span class="neon">yourself.</span></h2>
     <div class="row">
