@@ -907,7 +907,7 @@ function renderLocs(){
   const L=[
    {k:'T',n:'Tišnov',img:'media/int/sal-change-yourself.webp',addr:'Červený Mlýn 380, 666 01 Tišnov',tel:'+420 733 667 360',mail:'info@changefitness.cz',map:'https://maps.app.goo.gl/MpKx1RYmgm24v7aw6',
     eq:'Posilovna cca 150 m², funkční zóna cca 115 m², nová cardio zóna, nový sál pro skupinové lekce, šatny se zámky na kód, terasa',les:S.length+' lekcí týdně · Hybrid, Pilates, HIIT, TRX, box, 50+, děti'},
-   {k:'K',n:'Kuřim',img:'img/lekce-pilates.jpg',addr:'Legionářská 1265/70, 664 34 Kuřim',tel:'+420 793 996 588',mail:'kurim@changefitness.cz',map:'https://maps.app.goo.gl/DyBu41Wfi8dFgx2X6',
+   {k:'K',n:'Kuřim',img:'media/int/kurim-1.webp',addr:'Legionářská 1265/70, 664 34 Kuřim',tel:'+420 793 996 588',mail:'kurim@changefitness.cz',map:'https://maps.app.goo.gl/DyBu41Wfi8dFgx2X6',
     eq:'Posilovna se stroji GRÜN SPORT, cardio zóna, funkční a crossfit zóna, chill zóna, káva na recepci',les:'Posilovna a osobní tréninky · skupinové lekce v Tišnově'}];
   $('#locs').innerHTML=L.map(o=>`<article class="loc${branch===o.k?' active':''}" id="${o.k==='T'?'tisnov':'kurim'}">
     <div class="loc-media"><img class="photo" src="${o.img}" alt="" loading="lazy" style="opacity:.45">${branch===o.k?'<span class="loc-active" style="z-index:2">TVOJE POBOČKA</span>':''}<b style="position:relative;z-index:2">${o.n}</b></div>
