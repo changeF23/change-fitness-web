@@ -1,0 +1,7 @@
+# Subdomeny -> hlavni web s predvybranou pobockou
+https://tisnov.changefitness.cz/*  https://changefitness.cz/?pobocka=tisnov  301!
+http://tisnov.changefitness.cz/*   https://changefitness.cz/?pobocka=tisnov  301!
+https://kurim.changefitness.cz/*   https://changefitness.cz/?pobocka=kurim   301!
+http://kurim.changefitness.cz/*    https://changefitness.cz/?pobocka=kurim   301!
+# Stare adresy z WordPressu -> hlavni stranka
+/*  /  301
