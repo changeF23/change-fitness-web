@@ -810,7 +810,7 @@ const COACHES=[
  {n:'Vašek Říha',mail:'v.riha@changefitness.cz',img:'vasek',i:'VŘ',c:'#706E6E',b:['T']},
  {n:'Kamila Juříčková',mail:'k.jurickova@changefitness.cz',img:'kamila',i:'KJ',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.',b:['T']},
  {n:'Andrea Tobiaszová',mail:'a.tobiaszova@changefitness.cz',img:'andrea',i:'AT',c:'#FF7F50',q:'Funkční pohyb v každém věku.',b:['T']},
- {n:'Bc. Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
+ {n:'Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
  {n:'Aneta Julinková',mail:'a.julinkova@changefitness.cz',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K']},
  {n:'Martin Tříska',i:'MT',c:'#3598DB',b:['K']},
  {n:'Petr Vlk',mail:'p.vlk@changefitness.cz',img:'vlk',i:'PV',c:'#1B9447',b:['K']}
@@ -938,7 +938,7 @@ function renderLocs(){
 $('#zones').innerHTML=ZONES.map(([n,t,c,m])=>{const[k,p]=(m||'').split(':');const md=!m?'':k==='v'?`<video class="zm" data-lazy="media/${p}.mp4" poster="media/${p}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>`:`<img class="zm" src="media/${p}.webp" alt="" loading="lazy">`;return `<div class="zone" style="--c:${c}">${md}<h3>${n}</h3><p>${t}</p></div>`}).join('');
 function renderCoaches(){
 $('#rail').innerHTML=COACHES.filter(c=>c.b.includes(branch)).map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
-  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
+  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
   <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
   ${c.mail?`<div class="coach-links"><a class="link-cta" href="mailto:${c.mail}">Chci trénovat <span>→</span></a></div>`:''}</div></article>`).join('');
 }
