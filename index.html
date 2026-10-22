@@ -285,6 +285,8 @@ section{position:relative}
 .prod{border:1px solid var(--line);display:flex;flex-direction:column;min-width:0;background:var(--ink)}
 .prod-img{aspect-ratio:1;background:radial-gradient(60% 60% at 50% 45%,#2b2728,#0a0a0a);display:grid;place-items:center;position:relative}
 .prod-img b{font-family:var(--display);font-weight:900;font-size:1.5rem;text-transform:uppercase;color:rgba(255,255,255,.2);text-align:center;line-height:.95;padding:8px}
+.prod{text-decoration:none;transition:border-color .3s}.prod:hover{border-color:var(--line-2)}
+.prod-img{aspect-ratio:3/4;overflow:hidden}.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}.prod:hover .prod-img img{transform:scale(1.04)}
 .prod-img .media-tag{position:absolute;top:8px;left:8px;font-size:.58rem}
 .prod-body{padding:14px;display:grid;gap:4px}
 .prod-body small{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);font-weight:600}
@@ -450,6 +452,15 @@ section{position:relative}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+/* Media videa */
+.bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-photo .bgv{object-position:60% 30%}
+.exp-bg .bgv{z-index:-1;filter:grayscale(1) brightness(.75)}
+.zone .zm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;-webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%);transition:opacity .5s,transform .9s var(--ease)}
+.zone:hover .zm{opacity:.8;transform:scale(1.03)}
+.reel video.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel{filter:none}
 </style>
 </head>
 <body>
@@ -460,7 +471,7 @@ section{position:relative}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Change Fitness — domů"><img src="data:image/png;base64,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" alt=""><span>CHANGE FITNESS</span></a>
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="#fitness">FITNESS</a><a href="#lekce">LEKCE</a><a href="#treneri">TRENÉŘI</a><a href="#cenik">CENÍK</a><a href="#shop">SHOP</a><a href="#tisnov" data-goto="T">TIŠNOV</a><a href="#kurim" data-goto="K">KUŘIM</a>
+      <a href="#fitness">FITNESS</a><a href="#lekce">LEKCE</a><a href="#treneri">TRENÉŘI</a><a href="#cenik">CENÍK</a><a href="shop/">SHOP</a><a href="#tisnov" data-goto="T">TIŠNOV</a><a href="#kurim" data-goto="K">KUŘIM</a>
     </nav>
     <div class="branch" role="group" aria-label="Pobočka">
       <button type="button" data-branch="T" aria-pressed="true">TIŠNOV</button>
@@ -473,7 +484,7 @@ section{position:relative}
 <main id="top">
 <!-- 01 HERO -->
 <section class="hero" aria-label="Úvod">
-  <div class="hero-photo"></div><div class="hero-bg"></div><div class="hero-scan"></div><div class="hero-dia"></div><div class="grain"></div>
+  <div class="hero-photo"><video class="bgv" data-lazy="media/video/hero.mp4" poster="img/hero.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="hero-bg"></div><div class="hero-scan"></div><div class="hero-dia"></div><div class="grain"></div>
   <div class="wrap hero-inner">
     <h1><span>Unlock</span><span>your next</span><span>level.</span></h1>
     <div class="hero-row">
@@ -529,7 +540,7 @@ section{position:relative}
 
 <!-- 04 EXPERIENCE -->
 <section class="sec exp" id="fitness">
-  <div class="exp-bg"></div><div class="grain"></div>
+  <div class="exp-bg"><video class="bgv" data-lazy="media/int/silova-zona.mp4" poster="media/int/silova-zona.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="grain"></div>
   <div class="wrap exp-grid">
     <div style="display:grid;gap:28px">
       <p class="eyebrow">Fitness experience</p>
@@ -605,10 +616,10 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Change Essentials</p><h2 class="ess-head"><span>Train.</span><span>Recover.</span><span>Repeat.</span></h2></div>
-      <p class="lead">Change merch, suplementy a drinky koupíš přímo na recepci. Aktuální nabídku ti rádi ukážeme.</p>
+      <p class="lead">Káva z našeho baru, drinky, sportovní výživa, snacky i Change merch. Vše koupíš přímo na recepci.</p>
     </div>
     <div class="products" id="products"></div>
-    
+    <div style="margin-top:28px;display:flex;justify-content:center"><a class="btn" href="shop/">Celá nabídka baru <span class="arr">→</span></a></div>
   </div>
 </section>
 
@@ -641,11 +652,11 @@ section{position:relative}
       <a class="link-cta" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener">Sleduj nás na Instagramu <span>→</span></a>
     </div>
     <div class="reels">
-      <a class="reel" style="--c:#5F7896" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><img class="photo" src="img/reel-training.jpg" alt="" loading="lazy"><span class="play"></span><b>Training</b></a>
-      <a class="reel" style="--c:#FEC8DF" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><img class="photo" src="img/reel-classes.jpg" alt="" loading="lazy"><span class="play"></span><b>Classes</b></a>
-      <a class="reel" style="--c:#F7557E" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><img class="photo" src="img/reel-people.jpg" alt="" loading="lazy"><span class="play"></span><b>People</b></a>
-      <a class="reel" style="--c:#FF9F43" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><img class="photo" src="img/reel-events.jpg" alt="" loading="lazy"><span class="play"></span><b>Events</b></a>
-      <a class="reel" style="--c:#B28DFF" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><img class="photo" src="img/reel-bts.jpg" alt="" loading="lazy"><span class="play"></span><b>Behind the scenes</b></a>
+      <a class="reel" style="--c:#B28DFF" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-neon-logo.mp4" poster="media/video/spot-neon-logo.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Change Yourself</b></a>
+      <a class="reel" style="--c:#FF9F43" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-cinka.mp4" poster="media/video/spot-cinka.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Strength</b></a>
+      <a class="reel" style="--c:#5F7896" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-cas-na-zmenu.mp4" poster="media/video/spot-cas-na-zmenu.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Čas na změnu</b></a>
+      <a class="reel" style="--c:#F7557E" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-be-stronger.mp4" poster="media/video/spot-be-stronger.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Be stronger</b></a>
+      <a class="reel" style="--c:#1BBC9B" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-kotouc.mp4" poster="media/video/spot-kotouc.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Training</b></a>
     </div>
   </div>
 </section>
@@ -787,29 +798,22 @@ const COACHES=[
  {n:'Bc. Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',spec:'Fitbox · Booty · Síla',c:'#F7557E',q:'Disciplína je víc než motivace.',pt:true},
  {n:'Libor Macháň',img:'machan',i:'LM',spec:'Kickbox · Taekwondo',c:'#3598DB',q:'7. dan Taekwon-do, 4× mistr světa, 30 let trenérské praxe.'},
  {n:'Petr Vlk',mail:'p.vlk@changefitness.cz',img:'vlk',i:'PV',spec:'TRX',c:'#1B9447'},
- {n:'Vašek Říha',mail:'v.riha@changefitness.cz',i:'VŘ',spec:'Osobní trenér · Tišnov',c:'#706E6E'},
+ {n:'Vašek Říha',mail:'v.riha@changefitness.cz',i:'VŘ',spec:'Osobní trenér · Tišnov',c:'#706E6E',img:'vasek'},
  {n:'Jan Bezvoda',img:'bezvoda',i:'JB',spec:'Box',c:'#E64D3D'},
  {n:'Mgr. Zuzana Sokolová',i:'ZS',spec:'Lokomoce 50+ · 65+',c:'#D0EC01'},
  {n:'Petra Knoflíčková',i:'PK',spec:'Lokomoce děti',c:'#DEFD01'}
 ];
 
 const ZONES=[
- ['Silová zóna','Stroje GRÜN SPORT na všechny svalové partie, lavice, jednoručky až do 50 kg, multifunkční věž a klec na dřepy.','#5F7896'],
- ['Skupinové lekce','Nový sál pro Hybrid Workout, Power Pilates, HIIT, TRX, box a další lekce.','#F7557E'],
- ['Cardio','Nová cardio zóna s běžeckými pásy Life Fitness.','#B28DFF'],
- ['Funkční zóna','Air bike, veslo, SkiErg, sáně, lana, pneumatiky, kettlebelly a těžké medicinbaly.','#1B9447'],
- ['Osobní tréninky','Individuálně, ve dvou nebo ve třech. Ceny podle trenéra.','#FF7F50'],
- ['Šatny & zázemí','Šatny se zámky na kód, káva a posezení na recepci, terasa.','#3598DB']
+ ['Silová zóna','Stroje GRÜN SPORT na všechny svalové partie, lavice, jednoručky až do 50 kg, multifunkční věž a klec na dřepy.','#5F7896','v:int/stroje'],
+ ['Skupinové lekce','Nový sál pro Hybrid Workout, Power Pilates, HIIT, TRX, box a další lekce.','#F7557E','f:int/sal-change-yourself'],
+ ['Cardio','Nová cardio zóna s běžeckými pásy Life Fitness.','#B28DFF','f:int/welcome-wall'],
+ ['Funkční zóna','Air bike, veslo, SkiErg, sáně, lana, pneumatiky, kettlebelly a těžké medicinbaly.','#1B9447','v:int/funkcni-zona'],
+ ['Osobní tréninky','Individuálně, ve dvou nebo ve třech. Ceny podle trenéra.','#FF7F50','v:int/rack'],
+ ['Šatny & zázemí','Šatny se zámky na kód, káva a posezení na recepci, terasa.','#3598DB','f:int/satny-neon']
 ];
 
-const PRODUCTS=[
- ['Change tričko','Change merch','Change<br>Tee'],
- ['Change shaker','Shakery & lahve','Change<br>Shaker'],
- ['Proteinová tyčinka','Vilgain · Snacks','Vilgain'],
- ['Protein / iontový nápoj','Nutrend · Suplementy','Nutrend'],
- ['Electrolytes','FPE Nutrition · Suplementy','FPE'],
- ['Red Bull','Drinks','Red Bull']
-];
+// Produkty se načítají ze shop/products.json (doporučené = pole 'doporucene')
 
 // helpers
 const $=s=>document.querySelector(s);
@@ -900,7 +904,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-switch]');
 // locations
 function renderLocs(){
   const L=[
-   {k:'T',n:'Tišnov',img:'img/lekce-hybrid.jpg',addr:'Červený Mlýn 380, 666 01 Tišnov',tel:'+420 733 667 360',mail:'info@changefitness.cz',map:'https://maps.app.goo.gl/MpKx1RYmgm24v7aw6',
+   {k:'T',n:'Tišnov',img:'media/int/sal-change-yourself.webp',addr:'Červený Mlýn 380, 666 01 Tišnov',tel:'+420 733 667 360',mail:'info@changefitness.cz',map:'https://maps.app.goo.gl/MpKx1RYmgm24v7aw6',
     eq:'Posilovna cca 150 m², funkční zóna cca 115 m², nová cardio zóna, nový sál pro skupinové lekce, šatny se zámky na kód, terasa',les:S.length+' lekcí týdně · Hybrid, Pilates, HIIT, TRX, box, 50+, děti'},
    {k:'K',n:'Kuřim',img:'img/lekce-pilates.jpg',addr:'Legionářská 1265/70, 664 34 Kuřim',tel:'+420 793 996 588',mail:'kurim@changefitness.cz',map:'https://maps.app.goo.gl/DyBu41Wfi8dFgx2X6',
     eq:'Posilovna se stroji GRÜN SPORT, cardio zóna, funkční a crossfit zóna, chill zóna, káva na recepci',les:'Posilovna a osobní tréninky · skupinové lekce v Tišnově'}];
@@ -917,12 +921,14 @@ function renderLocs(){
 }
 
 // static renders
-$('#zones').innerHTML=ZONES.map(([n,t,c])=>`<div class="zone" style="--c:${c}"><h3>${n}</h3><p>${t}</p></div>`).join('');
+$('#zones').innerHTML=ZONES.map(([n,t,c,m])=>{const[k,p]=(m||'').split(':');const md=!m?'':k==='v'?`<video class="zm" data-lazy="media/${p}.mp4" poster="media/${p}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>`:`<img class="zm" src="media/${p}.webp" alt="" loading="lazy">`;return `<div class="zone" style="--c:${c}">${md}<h3>${n}</h3><p>${t}</p></div>`}).join('');
 $('#rail').innerHTML=COACHES.map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
   <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
   <div class="coach-body"><p class="spec">${esc(c.spec)}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
   ${c.mail?`<div class="coach-links"><a class="link-cta" href="mailto:${c.mail}">Chci trénovat <span>→</span></a></div>`:''}</div></article>`).join('');
-$('#products').innerHTML=PRODUCTS.map(([n,cat,img])=>`<article class="prod"><div class="prod-img"><b>${img}</b></div><div class="prod-body"><small>${esc(cat)}</small><b>${esc(n)}</b><span class="rec">K dostání na recepci</span></div></article>`).join('');
+fetch('shop/products.json').then(r=>r.json()).then(d=>{const by={};d.produkty.forEach(p=>by[p.id]=p);
+ $('#products').innerHTML=d.doporucene.map(id=>by[id]).filter(p=>p&&!p.skryt&&!p.koncept).map(p=>{const f=p.media.find(m=>m.typ==='foto'),v=p.media.find(m=>m.typ==='video'),src=f?f.src:(v?v.nahled:'');
+ return `<a class="prod" href="shop/#${p.kategorie}"><div class="prod-img">${src?`<img src="${src.replace(/^\//,'')}" alt="${esc(p.nazev)}" loading="lazy">`:`<b>${esc(p.nazev)}</b>`}</div><div class="prod-body"><small>${esc(p.znacka)}</small><b>${esc(p.nazev)}</b><span class="price">${p.cena} Kč</span></div></a>`}).join('');}).catch(()=>{});
 $('#statSessions').textContent=S.length;
 $('#statCoaches').textContent=COACHES.length;
 
@@ -991,6 +997,11 @@ document.querySelectorAll('[data-branch]').forEach(x=>x.setAttribute('aria-press
 renderGrid();renderDays();renderSlots();renderLocs();
 if(PB==='kurim'||PB==='tisnov'){setTimeout(()=>{const el=document.getElementById('pobocky');if(el)el.scrollIntoView()},300)}
 })();
+
+// lazy videa: načtou se až při zobrazení, hrají jen ve viewportu, reduced-motion = jen náhled
+(()=>{const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;const vs=document.querySelectorAll('video[data-lazy]');if(RM||!('IntersectionObserver' in window))return;
+const io=new IntersectionObserver(es=>es.forEach(x=>{const v=x.target;if(x.isIntersecting){if(!v.src){v.src=v.dataset.lazy;v.preload='auto'}v.play().catch(()=>{})}else if(v.src){v.pause()}}),{rootMargin:'200px 0px'});
+const go=()=>document.querySelectorAll('video[data-lazy]').forEach(v=>io.observe(v));if(document.readyState==='complete')go();else addEventListener('load',go)})();
 </script>
 </body>
 </html>

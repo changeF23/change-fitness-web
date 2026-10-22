@@ -1,0 +1,565 @@
+{
+ "_navod": "Pořadí produktů = pořadí v seznamu. Pořadí médií = pořadí v poli media (první je hlavní). skryt:true produkt schová. koncept:true = neověřené údaje, na webu se nezobrazí.",
+ "kategorie": [
+  {
+   "id": "kava",
+   "nazev": "Káva & speciality"
+  },
+  {
+   "id": "napoje",
+   "nazev": "Nápoje"
+  },
+  {
+   "id": "vyziva",
+   "nazev": "Sportovní výživa"
+  },
+  {
+   "id": "snacky",
+   "nazev": "Fitness snacky"
+  },
+  {
+   "id": "merch",
+   "nazev": "Merch & doplňky"
+  }
+ ],
+ "produkty": [
+  {
+   "id": "espresso",
+   "nazev": "Espresso",
+   "znacka": "Change Fitness Bar",
+   "kategorie": "kava",
+   "cena": 40,
+   "popis": "Espresso z našeho baru.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "video",
+     "src": "/media/shop/espresso-v1.mp4",
+     "nahled": "/media/shop/espresso-v1.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/espresso-v2.mp4",
+     "nahled": "/media/shop/espresso-v2.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/bar-espresso-v1.mp4",
+     "nahled": "/media/shop/bar-espresso-v1.jpg"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "espresso-tonic",
+   "nazev": "Espresso Tonic",
+   "znacka": "Change Fitness Bar",
+   "kategorie": "kava",
+   "cena": 69,
+   "popis": "Espresso s tonikem a ledem z našeho baru.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "video",
+     "src": "/media/shop/espresso-tonic-v1.mp4",
+     "nahled": "/media/shop/espresso-tonic-v1.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/espresso-tonic-v2.mp4",
+     "nahled": "/media/shop/espresso-tonic-v2.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/bar-tonic-v1.mp4",
+     "nahled": "/media/shop/bar-tonic-v1.jpg"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "proteinova-ledova-kava",
+   "nazev": "Proteinová ledová káva",
+   "znacka": "Change Fitness Bar",
+   "kategorie": "kava",
+   "cena": 100,
+   "popis": "Ledová káva s proteinem z našeho baru.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "video",
+     "src": "/media/shop/ledova-kava-v1.mp4",
+     "nahled": "/media/shop/ledova-kava-v1.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/ledova-kava-v2.mp4",
+     "nahled": "/media/shop/ledova-kava-v2.jpg"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "ginger-shot",
+   "nazev": "Ginger Shot 60 ml",
+   "znacka": "Ginger Shot",
+   "kategorie": "kava",
+   "cena": 59,
+   "popis": "Zázvorový shot v malé lahvičce.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/ginger-shot-1.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "monster",
+   "nazev": "Monster Energy 0,5 l",
+   "znacka": "Monster",
+   "kategorie": "napoje",
+   "cena": 50,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nocco",
+   "nazev": "NOCCO BCAA",
+   "znacka": "NOCCO",
+   "kategorie": "napoje",
+   "cena": 59,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "red-bull",
+   "nazev": "Red Bull",
+   "znacka": "Red Bull",
+   "kategorie": "napoje",
+   "cena": 49,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nutrend-carnitine",
+   "nazev": "Nutrend Carnitine 750 ml",
+   "znacka": "Nutrend",
+   "kategorie": "napoje",
+   "cena": 52,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "vilgain-elektrolyty",
+   "nazev": "Vilgain Elektrolyty 500 ml",
+   "znacka": "Vilgain",
+   "kategorie": "napoje",
+   "cena": 52,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "cola-fanta",
+   "nazev": "Coca-Cola / Fanta 0,5 l",
+   "znacka": "Coca-Cola",
+   "kategorie": "napoje",
+   "cena": 35,
+   "popis": "",
+   "varianty": [
+    {
+     "nazev": "Coca-Cola"
+    },
+    {
+     "nazev": "Fanta"
+    }
+   ],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "natura",
+   "nazev": "Natura 0,5 l",
+   "znacka": "Natura",
+   "kategorie": "napoje",
+   "cena": 25,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "rajec",
+   "nazev": "Rajec 0,7 l",
+   "znacka": "Rajec",
+   "kategorie": "napoje",
+   "cena": 30,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "elevate",
+   "nazev": "Elevate",
+   "znacka": "FPE",
+   "kategorie": "vyziva",
+   "cena": 49,
+   "popis": "Elevate od FPE.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/elevate-1.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/elevate-2.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "czech-virus-protein",
+   "nazev": "Czech Virus Protein 30 g",
+   "znacka": "Czech Virus",
+   "kategorie": "vyziva",
+   "cena": 50,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": true,
+   "poznamka_interni": "Ověřit aktuální cenu před publikací."
+  },
+  {
+   "id": "vilgain-clear-protein",
+   "nazev": "Vilgain Clear Protein 25 g",
+   "znacka": "Vilgain",
+   "kategorie": "vyziva",
+   "cena": 65,
+   "popis": "Porce Vilgain Clear Whey Isolate.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/clear-protein-1.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/clear-protein-2.webp"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/clear-protein-v1.mp4",
+     "nahled": "/media/shop/clear-protein-v1.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/clear-protein-v2.mp4",
+     "nahled": "/media/shop/clear-protein-v2.jpg"
+    }
+   ],
+   "skryt": false,
+   "koncept": true,
+   "poznamka_interni": "Ověřit aktuální cenu před publikací."
+  },
+  {
+   "id": "czech-virus-creatine",
+   "nazev": "Czech Virus Creatine 5 g",
+   "znacka": "Czech Virus",
+   "kategorie": "vyziva",
+   "cena": 20,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nutrend-iontovy",
+   "nazev": "Nutrend Iontový nápoj",
+   "znacka": "Nutrend",
+   "kategorie": "vyziva",
+   "cena": 20,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": true,
+   "poznamka_interni": "Ověřit aktuální cenu před publikací."
+  },
+  {
+   "id": "agrezz",
+   "nazev": "Extrifit AGREZZ",
+   "znacka": "Extrifit",
+   "kategorie": "vyziva",
+   "cena": 45,
+   "popis": "AGREZZ od značky Extrifit.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/agrezz-1.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/agrezz-2.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nitrox",
+   "nazev": "Nitrox",
+   "znacka": "",
+   "kategorie": "vyziva",
+   "cena": 40,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "double-trouble",
+   "nazev": "Double Trouble",
+   "znacka": "Vilgain",
+   "kategorie": "snacky",
+   "cena": 60,
+   "popis": "Proteinová tyčinka Vilgain Double Trouble.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/double-trouble-1.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/double-trouble-2.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/double-trouble-3.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/double-trouble-4.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "double-trouble-pistacie",
+   "nazev": "Double Trouble Pistácie",
+   "znacka": "Vilgain",
+   "kategorie": "snacky",
+   "cena": 65,
+   "popis": "Proteinová tyčinka Vilgain Double Trouble v pistáciové verzi.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/double-trouble-pistacie-1.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "energy-ball",
+   "nazev": "Energy Ball",
+   "znacka": "",
+   "kategorie": "snacky",
+   "cena": 42,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nut-butter-cups",
+   "nazev": "Nut Butter Cups",
+   "znacka": "",
+   "kategorie": "snacky",
+   "cena": 49,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "nut-butter-cups-pistacie",
+   "nazev": "Nut Butter Cups Pistácie",
+   "znacka": "",
+   "kategorie": "snacky",
+   "cena": 59,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "shaker",
+   "nazev": "Shaker 700 ml",
+   "znacka": "Change Fitness",
+   "kategorie": "merch",
+   "cena": 119,
+   "popis": "Shaker Change Fitness, objem 700 ml.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/shaker-1.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/shaker-2.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "kava-250g",
+   "nazev": "Káva 250 g",
+   "znacka": "Change Fitness",
+   "kategorie": "merch",
+   "cena": 220,
+   "popis": "Káva Change Fitness v balení 250 g.",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/kava-250g-1.webp"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/kava-250g-v3.mp4",
+     "nahled": "/media/shop/kava-250g-v3.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/kava-250g-v1.mp4",
+     "nahled": "/media/shop/kava-250g-v1.jpg"
+    },
+    {
+     "typ": "video",
+     "src": "/media/shop/kava-250g-v2.mp4",
+     "nahled": "/media/shop/kava-250g-v2.jpg"
+    }
+   ],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "tricko",
+   "nazev": "Tričko Change Fitness",
+   "znacka": "Change Fitness",
+   "kategorie": "merch",
+   "cena": 590,
+   "popis": "Tričko Change Fitness.",
+   "varianty": [
+    {
+     "nazev": "Dámské S"
+    },
+    {
+     "nazev": "Pánské M"
+    }
+   ],
+   "media": [],
+   "skryt": false,
+   "koncept": false
+  },
+  {
+   "id": "rucnik",
+   "nazev": "Ručník",
+   "znacka": "Change Fitness",
+   "kategorie": "merch",
+   "cena": 20,
+   "popis": "",
+   "varianty": [],
+   "media": [],
+   "skryt": false,
+   "koncept": true,
+   "poznamka_interni": "Ověřit, zda jde o prodej, nebo zapůjčení."
+  }
+ ],
+ "poukazy": {
+  "hodnotove": [
+   500,
+   1000,
+   2500,
+   5000
+  ],
+  "permanentky": [
+   {
+    "nazev": "10 vstupů",
+    "cena": 1390,
+    "pozn": "platnost 2 měsíce"
+   },
+   {
+    "nazev": "Měsíční – student / senior",
+    "cena": 1200
+   },
+   {
+    "nazev": "Měsíční – happy hours",
+    "cena": 1200,
+    "pozn": "Po–Pá 9:00–13:00"
+   },
+   {
+    "nazev": "Měsíční",
+    "cena": 1490
+   },
+   {
+    "nazev": "Čtvrtletní",
+    "cena": 3990
+   },
+   {
+    "nazev": "Půlroční",
+    "cena": 7390
+   },
+   {
+    "nazev": "Roční",
+    "cena": 12990
+   }
+  ]
+ },
+ "doporucene": [
+  "proteinova-ledova-kava",
+  "espresso-tonic",
+  "double-trouble",
+  "elevate",
+  "kava-250g",
+  "shaker"
+ ]
+}
