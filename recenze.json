@@ -1,0 +1,67 @@
+{
+ "_navod": "Skutečné recenze z Google Map (doslovně, případně zkrácené …).",
+ "profily": [
+  {
+   "pobocka": "Tišnov",
+   "hodnoceni": "4,9",
+   "pocet": 32,
+   "odkaz": "https://maps.google.com/?cid=15261844498514540242"
+  },
+  {
+   "pobocka": "Kuřim",
+   "hodnoceni": "4,9",
+   "pocet": 30,
+   "odkaz": "https://maps.google.com/?cid=9758693346032275645"
+  }
+ ],
+ "recenze": [
+  {
+   "jmeno": "Dj Tonda Chronc",
+   "pobocka": "Tišnov",
+   "hvezdy": 5,
+   "text": "Change Fitness mi změnilo pohled na cvičení i na to, jak nastartovat produktivní den. … Perfektní moderní vybavení, skvělé stroje, dostatek závaží pro kondičního cvičence. K tomu vždy milá a ochotná obsluha na recepci – člověk se sem fakt těší."
+  },
+  {
+   "jmeno": "Irena Helánová",
+   "pobocka": "Kuřim",
+   "hvezdy": 5,
+   "text": "Skvěle vedená posilovna, domácí, čisté prostředí, dostatek strojů, sympatický přístup trenérů, šatny a sprchy na velmi dobré úrovni. Nezbývá než chválit. Jezdím si zacvičit z Brna Bystrce, stojí mi to za to."
+  },
+  {
+   "jmeno": "Ane H.",
+   "pobocka": "Tišnov",
+   "hvezdy": 5,
+   "text": "Menší, moderní fitness. Majitelé se o něj moc hezky starají, udržují čistotu a neustále něco vylepšují. Moc ráda se sem vracím."
+  },
+  {
+   "jmeno": "Zuzana Koudelova",
+   "pobocka": "Kuřim",
+   "hvezdy": 5,
+   "text": "Gym je čistý, funkční, moderní vybavení a interiér. Holky na recepci jsou vždycky milé. Chodím sem moc ráda."
+  },
+  {
+   "jmeno": "Marie Školová",
+   "pobocka": "Tišnov",
+   "hvezdy": 5,
+   "text": "Konečně posilovna s krásným interiérem, vřelým přístupem a top vybavením!"
+  },
+  {
+   "jmeno": "Ester Veselková",
+   "pobocka": "Kuřim",
+   "hvezdy": 5,
+   "text": "Konečně je v Kuřimi krásné, moderní, čisté, vkusně zařízené a dobře vybavené fitko s milou a přátelskou obsluhou na recepci. Rozhodně zde budu chodit pravidelně."
+  },
+  {
+   "jmeno": "Anpronik",
+   "pobocka": "Tišnov",
+   "hvezdy": 5,
+   "text": "Hezky zařízené, funkční zóna a milé lidi. Tohle v Tišnově opravdu chybělo"
+  },
+  {
+   "jmeno": "Daniel B",
+   "pobocka": "Kuřim",
+   "hvezdy": 5,
+   "text": "super GYM.....pohodová atmosféra...vše co potřebujete na udržení kondice"
+  }
+ ]
+}

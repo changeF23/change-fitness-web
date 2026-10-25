@@ -1,0 +1,63 @@
+{
+ "_navod": "Akce se řadí podle data, proběhlé se samy schovají. nase:true = naše akce (zvýrazní se). Termíny ověřuj u pořadatele.",
+ "zdroj": "gotrail.run",
+ "akce": [
+  {
+   "datum": "2026-10-31",
+   "nazev": "Běh na památku P. Adolfa Tesaře",
+   "misto": "Ivančice",
+   "trate": "10 km",
+   "odkaz": "https://gotrail.run/cs/akce/beh-na-pamatku-p-adolfa-tesare"
+  },
+  {
+   "datum": "2026-11-01",
+   "nazev": "Běh na Babí lom",
+   "misto": "Kuřim – Podlesí",
+   "trate": "3,8 km · 2,6 km",
+   "odkaz": "https://gotrail.run/cs/akce/beh-na-babi-lom",
+   "pozn": "Kuřimská běžecká liga"
+  },
+  {
+   "datum": "2026-11-08",
+   "nazev": "PoHodová devítka",
+   "misto": "Velká Bíteš",
+   "trate": "9 km",
+   "odkaz": "https://gotrail.run/cs/akce/pohodova-devitka"
+  },
+  {
+   "datum": "2026-11-21",
+   "nazev": "Prádelna trail",
+   "misto": "Brno",
+   "trate": "půlmaraton",
+   "odkaz": "https://gotrail.run/cs/akce/pradelna-trail"
+  },
+  {
+   "datum": "2026-11-28",
+   "nazev": "Běh Slavkov – Mohyla míru a zpět",
+   "misto": "Slavkov u Brna",
+   "trate": "10 km · 25 km",
+   "odkaz": "https://gotrail.run/cs/akce/beh-slavkov-mohyla-miru-a-zpet"
+  },
+  {
+   "datum": "2026-12-12",
+   "nazev": "Vranovský noční trail",
+   "misto": "Vranov",
+   "trate": "12 km",
+   "odkaz": "https://gotrail.run/cs/akce/vranovsky-nocni-trail"
+  },
+  {
+   "datum": "2026-12-12",
+   "nazev": "Běh na Býčí skálu",
+   "misto": "Mokrá Hora",
+   "trate": "15 km · 30 km",
+   "odkaz": "https://gotrail.run/cs/akce/beh-na-byci-skalu"
+  },
+  {
+   "datum": "2027-03-13",
+   "nazev": "Vranovská jarní půlka",
+   "misto": "Vranov",
+   "trate": "půlmaraton",
+   "odkaz": "https://gotrail.run/cs/akce/vranovska-jarni-pulka"
+  }
+ ]
+}
