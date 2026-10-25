@@ -514,6 +514,21 @@ section{position:relative}
 .ct-form .btn{justify-self:start}
 .ct-gdpr{margin:0;font-size:.8rem;color:var(--grey)}
 .ct-msg{margin:0;padding:12px 14px;border:1px solid var(--line-2)}
+
+/* Trenéři – mřížka a profil */
+.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:1100px){.cgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.cgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cgrid .coach{position:relative;cursor:pointer}
+.coach-open{position:absolute;inset:0;z-index:3}
+.coach-no{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--display);font-weight:900;font-size:1.4rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.coach-tags{margin:0;font-size:.82rem;color:var(--mute);line-height:1.45}
+#cfilters{margin-bottom:20px}
+.d-tags{display:flex;flex-wrap:wrap;gap:8px}
+.d-tags span{border:1.5px solid var(--line-2);padding:.5em .9em;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.d-coach .photo{opacity:.55;object-position:50% 25%}
+.d-facts a{color:var(--off)}
+@media (max-width:700px){.cgrid .coach h3{font-size:1.25rem}.cgrid .coach q{display:none}}
 </style>
 </head>
 <body>
@@ -632,7 +647,9 @@ section{position:relative}
     <div class="sec-head">
       <div><p class="eyebrow">Trenéři</p><h2 class="h-xl">Lidé, kteří<br><span class="thin">tě posunou.</span></h2></div>
     </div>
-    <div class="rail" id="rail"></div>
+    <div class="filters" role="group" aria-label="Filtrovat trenéry podle specializace" id="cfilters"></div>
+    <div class="cgrid" id="rail"></div>
+    <p class="demo-note">Profily trenérů průběžně doplňujeme.</p>
     <div class="lead-block about" id="o-nas">
       <div class="about-photo"><img class="photo" src="img/ceo-o-nas.jpg" alt="Dominik Suchánek a Ing. Linda Prokopová, CEO Change Fitness" loading="lazy"></div>
       <div class="about-body">
@@ -1031,12 +1048,35 @@ function renderLocs(){
 
 // static renders
 $('#zones').innerHTML=ZONES.map(([n,t,c,m])=>{const[k,p]=(m||'').split(':');const md=!m?'':k==='v'?`<video class="zm" data-lazy="media/${p}.mp4" poster="media/${p}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>`:`<img class="zm" src="media/${p}.webp" alt="" loading="lazy">`;return `<div class="zone" style="--c:${c}">${md}<h3>${n}</h3><p>${t}</p></div>`}).join('');
+let cspec='vse';
+function coachSpec(c){return c.spec&&c.spec.length?c.spec:[]}
 function renderCoaches(){
-$('#rail').innerHTML=COACHES.filter(c=>c.b.includes(branch)).map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
-  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
-  <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
-  <div class="coach-links"><a class="link-cta" href="#kontakt" data-trener="${esc(c.n)}">Chci trénovat <span>→</span></a></div></div></article>`).join('');
+  const list=COACHES.filter(c=>c.b.includes(branch));
+  const specs=[...new Set(list.flatMap(coachSpec))].sort((a,b)=>a.localeCompare(b,'cs'));
+  if(cspec!=='vse'&&!specs.includes(cspec))cspec='vse';
+  $('#cfilters').hidden=!specs.length;
+  $('#cfilters').innerHTML=specs.length?[`<button type="button" class="chip" data-cs="vse" aria-pressed="${cspec==='vse'}">Všechny specializace</button>`,...specs.map(s=>`<button type="button" class="chip" data-cs="${esc(s)}" aria-pressed="${cspec===s}">${esc(s)}</button>`)].join(''):'';
+  const shown=list.filter(c=>cspec==='vse'||coachSpec(c).includes(cspec));
+  $('#rail').innerHTML=shown.map((c,i)=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
+  <button type="button" class="coach-open" data-coach="${COACHES.indexOf(c)}" aria-label="Profil: ${esc(c.n)}"></button>
+  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b><span class="coach-no">${String(i+1).padStart(2,'0')}</span></div>
+  <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>
+  ${coachSpec(c).length?`<p class="coach-tags">${coachSpec(c).map(esc).join(' · ')}</p>`:''}${c.q?`<q>${esc(c.q)}</q>`:''}
+  <div class="coach-links"><span class="link-cta">Profil trenéra <span>→</span></span></div></div></article>`).join('');
 }
+function openCoach(i){
+  const c=COACHES[i];lastFocus=document.activeElement;drawer.style.setProperty('--c',c.c);drawer.style.setProperty('--on',onColor(c.c));
+  const row=(k,v)=>v?`<div style="grid-column:1/-1"><dt>${k}</dt><dd>${esc(v).replace(/\n/g,'<br>')}</dd></div>`:'';
+  const kon=[c.tel?`<a href="tel:${c.tel.replace(/\s/g,'')}">${esc(c.tel)}</a>`:'',c.mail?`<a href="mailto:${c.mail}">${esc(c.mail)}</a>`:'',c.ig?`<a href="https://instagram.com/${c.ig.replace(/^@/,'')}" target="_blank" rel="noopener">Instagram @${esc(c.ig.replace(/^@/,''))}</a>`:''].filter(Boolean).join('<br>');
+  drawer.innerHTML=`<div class="d-hero d-coach">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="">`:''}<button type="button" class="d-close" data-close aria-label="Zavřít">✕</button><h2 id="dTitle">${c.n.split(' ').map(w=>`<span>${esc(w)}</span>`).join('')}</h2><p>${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p></div>
+  <div class="d-body">${c.o?`<p>${esc(c.o)}</p>`:'<p>Profil právě doplňujeme. Napiš nám a domluvíme ti první trénink.</p>'}
+   ${coachSpec(c).length?`<div class="d-tags">${coachSpec(c).map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:''}
+   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Praxe',c.praxe)}${row('Služby a ceny',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
+   <div><a class="btn" href="#kontakt" data-trener="${esc(c.n)}" data-close>Chci trénovat <span class="arr">→</span></a></div>
+  </div>`;
+  scrim.hidden=false;drawer.hidden=false;document.body.style.overflow='hidden';drawer.querySelector('.d-close').focus();
+}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-coach]');if(o){openCoach(+o.dataset.coach);return}const f=e.target.closest('[data-cs]');if(f){cspec=f.dataset.cs;renderCoaches()}});
 fetch('shop/products.json').then(r=>r.json()).then(d=>{const by={};d.produkty.forEach(p=>by[p.id]=p);
  $('#products').innerHTML=d.doporucene.map(id=>by[id]).filter(p=>p&&!p.skryt&&!p.koncept).map(p=>{const f=p.media.find(m=>m.typ==='foto'),v=p.media.find(m=>m.typ==='video'),src=f?f.src:(v?v.nahled:'');
  return `<a class="prod" href="shop/#${p.kategorie}"><div class="prod-img">${src?`<img src="${src.replace(/^\//,'')}" alt="${esc(p.nazev)}" loading="lazy">`:`<b>${esc(p.nazev)}</b>`}</div><div class="prod-body"><small>${esc(p.znacka)}</small><b>${esc(p.nazev)}</b><span class="price">${p.cena} Kč</span></div></a>`}).join('');}).catch(()=>{});
