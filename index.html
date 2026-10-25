@@ -1071,7 +1071,7 @@ function openCoach(i){
   drawer.innerHTML=`<div class="d-hero d-coach">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="">`:''}<button type="button" class="d-close" data-close aria-label="Zavřít">✕</button><h2 id="dTitle">${c.n.split(' ').map(w=>`<span>${esc(w)}</span>`).join('')}</h2><p>${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p></div>
   <div class="d-body">${c.o?`<p>${esc(c.o)}</p>`:'<p>Profil právě doplňujeme. Napiš nám a domluvíme ti první trénink.</p>'}
    ${coachSpec(c).length?`<div class="d-tags">${coachSpec(c).map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:''}
-   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Praxe',c.praxe)}${row('Služby a ceny',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
+   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Praxe',c.praxe)}${row('Služby',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
    <div><a class="btn" href="#kontakt" data-trener="${esc(c.n)}" data-close>Chci trénovat <span class="arr">→</span></a></div>
   </div>`;
   scrim.hidden=false;drawer.hidden=false;document.body.style.overflow='hidden';drawer.querySelector('.d-close').focus();
