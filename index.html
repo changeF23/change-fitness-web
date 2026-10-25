@@ -101,7 +101,7 @@ section{position:relative}
 @keyframes breathe{50%{inset:18%}}
 .hero-scan{position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px)}
 .hero-inner{width:100%;padding-block:clamp(64px,9vw,120px) clamp(40px,6vw,72px);display:grid;gap:32px}
-.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;line-height:.8;font-size:clamp(4.4rem,15vw,13.5rem);letter-spacing:-.01em}
+.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;line-height:1;font-size:clamp(4rem,13.5vw,12rem);letter-spacing:-.01em}
 .hero h1 span{display:block;animation:rise .9s var(--ease) both}
 .hero h1 span:nth-child(2){animation-delay:.08s;-webkit-text-stroke:2px var(--off);color:transparent}
 .hero h1 span:nth-child(3){animation-delay:.16s}
@@ -126,7 +126,9 @@ section{position:relative}
 .chip{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.75em 1.1em;border:1px solid var(--line-2);color:var(--mute);transition:all .2s}
 .chip:hover{color:var(--white);border-color:var(--white)}
 .chip[aria-pressed="true"]{background:var(--white);color:var(--ink);border-color:var(--white)}
-.branch-note{font-size:.88rem;color:var(--mute);margin:-10px 0 24px;display:flex;gap:.6em;align-items:baseline}
+.branch-note{font-size:1rem;color:var(--ink);background:var(--ph);margin:-6px 0 24px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:.6em 1.2em;align-items:center;justify-content:space-between}
+.branch-note b{font-weight:700}
+.branch-note button{font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1.5px solid currentColor;padding-bottom:2px}
 
 /* Class cards */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -979,7 +981,7 @@ function renderGrid(){
         <div class="card-actions"><button type="button" class="btn ghost" data-detail="${g.id}">Detail lekce</button>${occ?`<button type="button" class="btn" data-book="${occ.s.id}" data-date="${occ.date.getTime()}">Rezervovat <span class="arr">→</span></button>`:''}</div>
       </div></article>`}).join('');
   const note=$('#branchNote');
-  if(branch==='K'){note.hidden=false;note.innerHTML='Skupinové lekce probíhají v Change Fitness Tišnov. V Kuřimi tě čeká posilovna, funkční zóna a osobní tréninky.'}else note.hidden=true;
+  if(branch==='K'){note.hidden=false;note.innerHTML='<span><b>Skupinové lekce probíhají pouze v Tišnově</b> – sál máme jen tam. V Kuřimi tě čeká posilovna, funkční zóna a osobní tréninky.</span><button type="button" data-switch="T">Přepnout na Tišnov</button>'}else note.hidden=true;
 }
 
 // quick booking
@@ -995,7 +997,7 @@ function renderSlots(){
   $('#qbWhen').textContent=dayOff===0?'dnes?':dayOff===1?'zítra?':([3,4].includes(d.getDay())?'ve ':'v ')+(['neděli','pondělí','úterý','středu','čtvrtek','pátek','sobotu'][d.getDay()])+'?';
   const list=S.filter(s=>s.d===d.getDay()&&s.branch===branch).sort((a,b)=>toMin(a.s)-toMin(b.s));
   if(!list.length){
-    $('#slots').innerHTML=branch==='K'?`<div class="empty"><b>Kuřim</b><span>Skupinové lekce zatím vypisujeme jen v Tišnově. V Kuřimi je pro tebe posilovna, funkční zóna a osobní trenéři.</span><button type="button" class="btn ghost" data-switch="T">Zobrazit lekce v Tišnově</button></div>`:`<div class="empty"><b>Dnes volno</b><span>Tento den nemáme skupinové lekce. Fitko je otevřené.</span></div>`;return}
+    $('#slots').innerHTML=branch==='K'?`<div class="empty"><b>Lekce jen v Tišnově</b><span>Skupinové lekce probíhají pouze v Tišnově, sál máme jen tam. V Kuřimi je pro tebe posilovna, funkční zóna a osobní trenéři.</span><button type="button" class="btn ghost" data-switch="T">Zobrazit lekce v Tišnově</button></div>`:`<div class="empty"><b>Dnes volno</b><span>Tento den nemáme skupinové lekce. Fitko je otevřené.</span></div>`;return}
   $('#slots').innerHTML=list.map(s=>{
     const p=P[s.p];const start=new Date(d);start.setHours(...s.s.split(':').map(Number),0,0);const past=start<=now;
     const f=spots(s,dateKey(d));
