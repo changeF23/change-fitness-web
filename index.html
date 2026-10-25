@@ -101,7 +101,7 @@ section{position:relative}
 @keyframes breathe{50%{inset:18%}}
 .hero-scan{position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px)}
 .hero-inner{width:100%;padding-block:clamp(64px,9vw,120px) clamp(40px,6vw,72px);display:grid;gap:32px}
-.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;line-height:.8;font-size:clamp(4.4rem,15vw,13.5rem);letter-spacing:-.01em}
+.hero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;line-height:1;font-size:clamp(4rem,13.5vw,12rem);letter-spacing:-.01em}
 .hero h1 span{display:block;animation:rise .9s var(--ease) both}
 .hero h1 span:nth-child(2){animation-delay:.08s;-webkit-text-stroke:2px var(--off);color:transparent}
 .hero h1 span:nth-child(3){animation-delay:.16s}
@@ -126,7 +126,9 @@ section{position:relative}
 .chip{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.75em 1.1em;border:1px solid var(--line-2);color:var(--mute);transition:all .2s}
 .chip:hover{color:var(--white);border-color:var(--white)}
 .chip[aria-pressed="true"]{background:var(--white);color:var(--ink);border-color:var(--white)}
-.branch-note{font-size:.88rem;color:var(--mute);margin:-10px 0 24px;display:flex;gap:.6em;align-items:baseline}
+.branch-note{font-size:1rem;color:var(--ink);background:var(--ph);margin:-6px 0 24px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:.6em 1.2em;align-items:center;justify-content:space-between}
+.branch-note b{font-weight:700}
+.branch-note button{font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1.5px solid currentColor;padding-bottom:2px}
 
 /* Class cards */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -472,6 +474,61 @@ section{position:relative}
 .about-body{display:grid;gap:20px;align-content:center}
 .about .leads{grid-template-columns:1fr}
 .about .lead-card{grid-template-columns:1fr;padding:22px}
+
+/* Recenze */
+.rv-scores{display:flex;gap:12px;flex-wrap:wrap}
+.rv-score{border:1px solid var(--line-2);padding:14px 18px;text-decoration:none;display:grid;gap:2px;min-width:150px;transition:border-color .25s}
+.rv-score:hover{border-color:var(--white)}
+.rv-score b{font-family:var(--display);font-weight:900;font-size:2.4rem;line-height:.9}
+.rv-score span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.rv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:1100px){.rv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.rv-grid{grid-template-columns:1fr}}
+.rv{border:1px solid var(--line);padding:22px;display:grid;gap:14px;align-content:start;background:var(--ink)}
+.rv .st{color:var(--white);letter-spacing:.2em;font-size:.9rem}
+.rv p{margin:0;font-weight:300;line-height:1.5}
+.rv footer{display:flex;justify-content:space-between;gap:8px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--mute);margin-top:auto}
+/* Akce */
+.ev-list{display:grid;border-top:1px solid var(--line)}
+.ev{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background .25s}
+.ev:hover{background:rgba(255,255,255,.03)}
+.ev-date{font-family:var(--display);font-weight:900;font-size:2.4rem;line-height:.85}
+.ev-date small{display:block;font-family:var(--ui);font-size:.66rem;letter-spacing:.18em;font-weight:700;color:var(--mute);margin-top:6px;text-transform:uppercase}
+.ev h3{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,2.2vw,1.8rem);text-transform:uppercase;line-height:1}
+.ev p{margin:6px 0 0;color:var(--mute);font-size:.9rem}
+.ev .ev-go{font-size:.7rem;letter-spacing:.18em;font-weight:700;text-transform:uppercase;white-space:nowrap}
+.ev.nase h3{color:var(--ph)}
+@media (max-width:600px){.ev{grid-template-columns:76px minmax(0,1fr)}.ev .ev-go{display:none}.ev-date{font-size:1.9rem}}
+/* Kontakt */
+.ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px)}
+@media (max-width:900px){.ct-grid{grid-template-columns:1fr}}
+.ct-direct{margin:0;color:var(--mute);line-height:1.9}
+.ct-direct a{color:var(--off)}
+.ct-form{display:grid;gap:16px;border:1px solid var(--line-2);padding:clamp(20px,3vw,36px);background:var(--ink)}
+.ct-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:600px){.ct-row{grid-template-columns:1fr}}
+.ct-form label{display:grid;gap:8px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mute)}
+.ct-form label small{letter-spacing:.05em;text-transform:none;font-weight:400}
+.ct-form input,.ct-form select,.ct-form textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transform:none;font-weight:400;color:var(--off);background:#0d0c0c;border:1px solid var(--line-2);padding:.85em .9em;border-radius:0;width:100%}
+.ct-form input:focus,.ct-form select:focus,.ct-form textarea:focus{outline:none;border-color:var(--white)}
+.ct-form .btn{justify-self:start}
+.ct-gdpr{margin:0;font-size:.8rem;color:var(--grey)}
+.ct-msg{margin:0;padding:12px 14px;border:1px solid var(--line-2)}
+
+/* Trenéři – mřížka a profil */
+.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:1100px){.cgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.cgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cgrid .coach{position:relative;cursor:pointer}
+.coach-open{position:absolute;inset:0;z-index:3}
+.coach-no{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--display);font-weight:900;font-size:1.4rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.coach-tags{margin:0;font-size:.82rem;color:var(--mute);line-height:1.45}
+#cfilters{margin-bottom:20px}
+.d-tags{display:flex;flex-wrap:wrap;gap:8px}
+.d-tags span{border:1.5px solid var(--line-2);padding:.5em .9em;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.d-coach .photo{opacity:.55;object-position:50% 25%}
+.d-facts a{color:var(--off)}
+@media (max-width:700px){.cgrid .coach h3{font-size:1.25rem}.cgrid .coach q{display:none}}
 </style>
 </head>
 <body>
@@ -482,7 +539,7 @@ section{position:relative}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Change Fitness — domů"><img src="data:image/png;base64,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" alt=""><span>CHANGE FITNESS</span></a>
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="#fitness">FITNESS</a><a href="#lekce">LEKCE</a><a href="#treneri">TRENÉŘI</a><a href="#cenik">CENÍK</a><a href="shop/">SHOP</a><a href="#tisnov" data-goto="T">TIŠNOV</a><a href="#kurim" data-goto="K">KUŘIM</a>
+      <a href="#fitness">FITNESS</a><a href="#lekce">LEKCE</a><a href="#treneri">TRENÉŘI</a><a href="#cenik">CENÍK</a><a href="shop/">SHOP</a><a href="#pobocky">POBOČKY</a><a href="#akce">AKCE</a><a href="#kontakt">KONTAKT</a>
     </nav>
     <div class="branch" role="group" aria-label="Pobočka">
       <button type="button" data-branch="T" aria-pressed="true">TIŠNOV</button>
@@ -497,7 +554,7 @@ section{position:relative}
 <section class="hero" aria-label="Úvod">
   <div class="hero-photo"><video class="bgv" data-lazy="media/video/hero-gym.mp4" poster="media/video/hero-gym.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="hero-bg"></div><div class="hero-scan"></div><div class="hero-dia"></div><div class="grain"></div>
   <div class="wrap hero-inner">
-    <h1><span>Unlock</span><span>your next</span><span>level.</span></h1>
+    <h1><span>Posuň se</span><span>na next</span><span>level.</span></h1>
     <div class="hero-row">
       <div class="hero-sub"><b>Fitness. Lekce. Komunita.</b><span>Tišnov &amp; Kuřim</span></div>
       <div class="hero-ctas">
@@ -532,7 +589,7 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="eyebrow">Rychlý booking</p>
+        <p class="eyebrow">Rychlá rezervace</p>
         <h2 class="h-xl">Co si dáš <span class="thin" id="qbWhen">dnes?</span></h2>
       </div>
     </div>
@@ -554,8 +611,8 @@ section{position:relative}
   <div class="exp-bg"><video class="bgv" data-lazy="media/int/kettlebelly-wide.mp4" poster="media/int/kettlebelly-wide.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div><div class="grain"></div>
   <div class="wrap exp-grid">
     <div style="display:grid;gap:28px">
-      <p class="eyebrow">Fitness experience</p>
-      <h2 class="wall"><span>Welcome to</span><span class="neon">the next level.</span></h2>
+      <p class="eyebrow">Nové Change Fitness</p>
+      <h2 class="wall"><span>Vítej na</span><span class="neon">dalším levelu.</span></h2>
       <p class="lead">Nový prostor. Nová energie. Nová úroveň tréninku. Nová cardio zóna, další stroje v silové zóně, šatny se zámky na kód a nový sál, kde startují skupinové lekce.</p>
       <div><a class="btn ghost" href="#zony">Objevit fitness <span class="arr">→</span></a></div>
     </div>
@@ -579,7 +636,7 @@ section{position:relative}
 <!-- 06 POBOČKY -->
 <section class="sec" id="pobocky" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><div><p class="eyebrow">Pobočky</p><h2 class="h-xl">One change.<br><span class="thin">Two locations.</span></h2></div></div>
+    <div class="sec-head"><div><p class="eyebrow">Pobočky</p><h2 class="h-xl">1 komunita.<br><span class="thin">2 lokace.</span></h2></div></div>
     <div class="locs" id="locs"></div>
   </div>
 </section>
@@ -590,14 +647,16 @@ section{position:relative}
     <div class="sec-head">
       <div><p class="eyebrow">Trenéři</p><h2 class="h-xl">Lidé, kteří<br><span class="thin">tě posunou.</span></h2></div>
     </div>
-    <div class="rail" id="rail"></div>
+    <div class="filters" role="group" aria-label="Filtrovat trenéry podle specializace" id="cfilters"></div>
+    <div class="cgrid" id="rail"></div>
+    <p class="demo-note">Profily trenérů průběžně doplňujeme.</p>
     <div class="lead-block about" id="o-nas">
       <div class="about-photo"><img class="photo" src="img/ceo-o-nas.jpg" alt="Dominik Suchánek a Ing. Linda Prokopová, CEO Change Fitness" loading="lazy"></div>
       <div class="about-body">
         <p class="eyebrow">O nás · Za Change Fitness stojí</p>
         <div class="leads">
         <article class="lead-card"><div><p class="spec">CEO Change Fitness</p><h3>Dominik Suchánek</h3><p class="lead-contact"><a href="tel:+420736668928">736 668 928</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
-        <article class="lead-card"><div><p class="spec">CEO Change Fitness</p><h3>Ing. Linda Prokopová</h3><p class="lead-contact"><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
+        <article class="lead-card"><div><p class="spec">CEO Change Fitness</p><h3>Ing. Linda Prokopová</h3><p class="lead-contact"><a href="tel:+420776822909">776 822 909</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p></div></article>
         </div>
       </div>
     </div>
@@ -609,7 +668,7 @@ section{position:relative}
   <div class="wrap comm">
     <div style="display:grid;gap:24px">
       <p class="eyebrow">Komunita</p>
-      <h2 class="h-xl">Tvůj next level<br><span class="thin">nemusíš zvládnout sám.</span></h2>
+      <h2 class="h-xl">Na další level<br><span class="thin">nemusíš sám.</span></h2>
       <p class="lead">Ranní HIIT, než se Tišnov rozkouká. Friday HIIT Party na konec týdne. Grilovačky, společné tréninky a trenéři, kteří tě znají jménem.</p>
       <div><a class="btn ghost" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener">Přidej se ke komunitě <span class="arr">→</span></a></div>
     </div>
@@ -625,11 +684,35 @@ section{position:relative}
   </div>
 </section>
 
+
+<!-- 08b RECENZE -->
+<section class="sec" id="recenze" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Recenze z Google</p><h2 class="h-xl">Co o nás<br><span class="thin">říkáte vy.</span></h2></div>
+      <div class="rv-scores" id="rvScores"></div>
+    </div>
+    <div class="rv-grid" id="rvGrid"></div>
+  </div>
+</section>
+
+<!-- 08c AKCE -->
+<section class="sec qb" id="akce">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Kalendář akcí</p><h2 class="h-xl">Akce<br><span class="thin">v okolí.</span></h2></div>
+      <p class="lead">Běhy a závody v okolí Tišnova, Kuřimi a Brna. Vyber si cíl a připrav se na něj s námi.</p>
+    </div>
+    <div class="ev-list" id="evList"></div>
+    <p class="demo-note" id="evNote"></p>
+  </div>
+</section>
+
 <!-- 09 ESSENTIALS -->
 <section class="sec" id="shop" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Change Essentials</p><h2 class="ess-head"><span>Train.</span><span>Recover.</span><span>Repeat.</span></h2></div>
+      <div><p class="eyebrow">Fitness bar a shop</p><h2 class="ess-head"><span>Trénuj.</span><span>Doplň.</span><span>Opakuj.</span></h2></div>
       <p class="lead">Káva z našeho baru, drinky, sportovní výživa, snacky i Change merch. Vše koupíš přímo na recepci.</p>
     </div>
     <div class="products" id="products"></div>
@@ -641,7 +724,7 @@ section{position:relative}
 <section class="sec qb" id="cenik">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Členství a ceník</p><h2 class="h-xl">Ready for<br><span class="thin">your next level?</span></h2></div>
+      <div><p class="eyebrow">Členství a ceník</p><h2 class="h-xl">Připraven/a<br><span class="thin">na další level?</span></h2></div>
       <p class="lead"><b style="color:var(--off)">Začni v Change.</b> Vyber si, jak chceš trénovat. Kompletní ceník je na samostatné stránce.</p>
     </div>
     <div class="price-grid">
@@ -662,7 +745,7 @@ section{position:relative}
 <section class="sec" id="social" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Change life</p><h2 class="h-xl">Inside<br><span class="thin">Change.</span></h2></div>
+      <div><p class="eyebrow">Sleduj nás</p><h2 class="h-xl">Ze života<br><span class="thin">v Change.</span></h2></div>
       <a class="link-cta" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener">Sleduj nás na Instagramu <span>→</span></a>
     </div>
     <div class="reels">
@@ -672,6 +755,35 @@ section{position:relative}
       <a class="reel" style="--c:#F7557E" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-be-stronger.mp4" poster="media/video/spot-be-stronger.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Be stronger</b></a>
       <a class="reel" style="--c:#1BBC9B" href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener"><video class="photo" data-lazy="media/video/spot-kotouc.mp4" poster="media/video/spot-kotouc.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play"></span><b>Training</b></a>
     </div>
+  </div>
+</section>
+
+<!-- 12b KONTAKT -->
+<section class="sec qb" id="kontakt">
+  <div class="wrap ct-grid">
+    <div style="display:grid;gap:22px;align-content:start">
+      <p class="eyebrow">Kontakt</p>
+      <h2 class="h-xl">Napiš<br><span class="thin">nám.</span></h2>
+      <p class="lead">Chceš osobní trénink, permanentku nebo se na něco zeptat? Nech nám kontakt a ozveme se ti.</p>
+      <p class="ct-direct">Tišnov <a href="tel:+420733667360">+420 733 667 360</a><br>Kuřim <a href="tel:+420793996588">+420 793 996 588</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a></p>
+    </div>
+    <form class="ct-form" name="kontakt" method="POST" action="/dekujeme.html" data-netlify="true" netlify-honeypot="bot-field" id="ctForm">
+      <input type="hidden" name="form-name" value="kontakt">
+      <p hidden><label>Nevyplňuj: <input name="bot-field"></label></p>
+      <label>Jméno a příjmení<input name="jmeno" required autocomplete="name"></label>
+      <div class="ct-row">
+        <label>Telefon<input name="telefon" type="tel" required autocomplete="tel" inputmode="tel"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="ct-row">
+        <label>Pobočka<select name="pobocka"><option>Tišnov</option><option>Kuřim</option></select></label>
+        <label>Mám zájem o<select name="zajem" id="ctZajem"><option>Obecný dotaz</option><option>Osobní trénink</option><option>Permanentka / členství</option><option>Skupinové lekce</option><option>Dárkový poukaz</option></select></label>
+      </div>
+      <label>Zpráva <small>(nepovinné)</small><textarea name="zprava" rows="4"></textarea></label>
+      <p class="ct-gdpr">Odesláním souhlasíš se zpracováním údajů pro účely odpovědi. <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></p>
+      <button class="btn" type="submit">Odeslat <span class="arr">→</span></button>
+      <p class="ct-msg" id="ctMsg" role="status" hidden></p>
+    </form>
   </div>
 </section>
 
@@ -694,8 +806,8 @@ section{position:relative}
       <div><a class="brand" href="#top"><img src="data:image/png;base64,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" alt=""><span>CHANGE FITNESS</span></a><p style="margin-top:16px;max-width:30ch">Fitness, skupinové lekce a komunita v Tišnově a Kuřimi.</p></div>
       <div><h4>Tišnov</h4><p>Červený Mlýn 380<br>666 01 Tišnov<br><a href="tel:+420733667360">+420 733 667 360</a><br><a href="mailto:info@changefitness.cz">info@changefitness.cz</a><br>Po–Pá 6:00–21:00<br>So–Ne a svátky 7:00–21:00</p></div>
       <div><h4>Kuřim</h4><p>Legionářská 1265/70<br>664 34 Kuřim<br><a href="tel:+420793996588">+420 793 996 588</a><br><a href="mailto:kurim@changefitness.cz">kurim@changefitness.cz</a><br>Po–Pá 6:00–21:00<br>So–Ne a svátky 7:00–21:00</p></div>
-      <div><h4>Change</h4><ul><li><a href="#fitness">Fitness</a></li><li><a href="#lekce">Lekce</a></li><li><a href="#treneri">Trenéři</a></li><li><a href="#cenik">Ceník</a></li><li><a href="#shop">Shop</a></li><li><a href="#pobocky">Kontakt</a></li><li><a href="https://rezervace.membex.cz/change-fitness" target="_blank" rel="noopener">Rezervace lekcí</a></li><li><a href="mailto:change.fitko@gmail.com">Práce u nás</a></li></ul></div>
-      <div><h4>Social</h4><ul><li><a href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=100091461627416" target="_blank" rel="noopener">Facebook</a></li></ul><h4 style="margin-top:20px">Právní</h4><ul><li><a href="provozni-rad.pdf" target="_blank" rel="noopener">Provozní řád</a></li><li><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></li></ul></div>
+      <div><h4>Change</h4><ul><li><a href="#fitness">Fitness</a></li><li><a href="#lekce">Lekce</a></li><li><a href="#treneri">Trenéři</a></li><li><a href="#cenik">Ceník</a></li><li><a href="#shop">Shop</a></li><li><a href="#akce">Akce v okolí</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="https://rezervace.membex.cz/change-fitness" target="_blank" rel="noopener">Rezervace lekcí</a></li><li><a href="mailto:change.fitko@gmail.com">Práce u nás</a></li></ul></div>
+      <div><h4>Sítě</h4><ul><li><a href="https://www.instagram.com/changefitness__/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=100091461627416" target="_blank" rel="noopener">Facebook</a></li></ul><h4 style="margin-top:20px">Právní</h4><ul><li><a href="provozni-rad.pdf" target="_blank" rel="noopener">Provozní řád</a></li><li><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></li></ul></div>
     </div>
     <div class="ftr-sign"><span>Change yourself.</span><small>© 2026 Change Fitness s.r.o. · Tišnov &amp; Kuřim</small></div>
   </div>
@@ -712,7 +824,7 @@ section{position:relative}
 const MEMBEX='https://rezervace.membex.cz/change-fitness';
 const DAYN=['NE','PO','ÚT','ST','ČT','PÁ','SO'];
 const DAYL=['neděle','pondělí','úterý','středa','čtvrtek','pátek','sobota'];
-const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['padesat','50+'],['deti','Děti']];
+const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['padesat','Kruháč 50+'],['deti','Děti']];
 
 // Programs = individual lessons in the timetable (rozvrh 20. 9. 2026, Tišnov)
 const P={
@@ -765,7 +877,7 @@ const G=[
   short:'Údery z boxu a kopy. Vede Libor Macháň, 7. dan a čtyřnásobný mistr světa.',
   long:'Kickbox spojuje údery rukama z boxu s kopy. Na lekci se naučíš správnou techniku, kryt a práci nohou – a pak to všechno pustíš do lap a pytlů. Parádní kondice, posílíš celé tělo a nic tak dobře nevyčistí hlavu po náročném dni.',
   who:'Pro všechny, kdo chtějí bojový sport s dobrým vedením.',what:'75 minut techniky, krytu, kopů a práce na lapách.',bring:'Bandáže a rukavice (pokud máš), pití, ručník.',progs:['kick']},
- {id:'padesat',img:'padesat',name:'50+',tags:'Lokomoce · Vital Age',cat:'padesat',c:'#FF7F50',int:1,
+ {id:'padesat',img:'padesat',name:'Kruháč 50+',tags:'Lokomoce · Vital Age',cat:'padesat',c:'#FF7F50',int:1,
   short:'Síla, rovnováha a zdravá záda v každém věku. Cvičení přizpůsobené možnostem každého.',
   long:'Lekce pro všechny, kdo chtějí zůstat silní, pohybliví a soběstační. Vital Age 50+ cílí na sílu, zdravá záda a pevný střed těla. Lokomoce Aktiv 50+ přidává kruhový trénink a vedené silové cvičení. Lokomoce Start 65+ rozvíjí pohyblivost, stabilitu a rovnováhu – i pro ty, kdo se k pohybu vracejí po delší pauze.',
   who:'50+ a 65+. Cviky přizpůsobujeme individuálním potřebám. První lekce Lokomoce je ukázková.',what:'Funkční pohyb, síla, rovnováha. Lokomoce vede pobočný spolek Lokomoce Tišnov.',bring:'Pohodlné oblečení, pití.',price:'Lokomoce 2 500 Kč / pololetí',progs:['vital','aktiv','start']},
@@ -773,7 +885,7 @@ const G=[
   short:'Pilates s trochou víc ohně. Hluboký střed těla, držení těla a dech, k tomu tempo a silové prvky.',
   long:'Pilates posiluje hluboké svaly středu těla, zlepšuje držení těla a učí tě pracovat s dechem a kontrolou pohybu. V power verzi přidáváme tempo a silové prvky, takže se u toho pořádně zapotíš – a přitom šetrně ke kloubům.',
   who:'Jako protiváha k celodennímu sezení i jako doplněk k posilovně. Vede trenérka s certifikací DNS.',
-  what:'Kontrolovaný, vědomý pohyb se silovými prvky. Střed těla, stabilita, mobilita.',bring:'Pohodlné oblečení, ponožky, pití.',progs:['pilates']},
+  what:'Kontrolovaný, vědomý pohyb se silovými prvky. Střed těla, stabilita, mobilita.',bring:'Podložku na jógu, pohodlné oblečení, ponožky a pití.',progs:['pilates']},
  {id:'booty',img:'booty',name:'Booty Booster & Abs',tags:'Formování / Hýždě / Core',cat:'formovani',c:'#F7557E',int:2,
   short:'Pevnější zadek a silné břicho. Gumy, vlastní váha i zátěž, k tomu práce na středu těla.',
   long:'Hodina pro všechny, kdo chtějí pevnější zadek a silné břicho. Čekají tě cviky na hýžďové svaly s gumami, vlastní vahou i zátěží a k tomu práce na středu těla. Silný core ti dá lepší držení těla, stabilitu při každém dalším cviku a uleví i zádům.',
@@ -807,13 +919,13 @@ const G=[
 
 // Osobní trenéři podle pobočky (b: T = Tišnov, K = Kuřim)
 const COACHES=[
- {n:'Vašek Říha',mail:'v.riha@changefitness.cz',img:'vasek',i:'VŘ',c:'#706E6E',b:['T']},
- {n:'Kamila Juříčková',mail:'k.jurickova@changefitness.cz',img:'kamila',i:'KJ',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.',b:['T']},
- {n:'Andrea Tobiaszová',mail:'a.tobiaszova@changefitness.cz',img:'andrea',i:'AT',c:'#FF7F50',q:'Funkční pohyb v každém věku.',b:['T']},
- {n:'Aneta Jarůšková',mail:'a.jaruskova@changefitness.cz',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
- {n:'Aneta Julinková',mail:'a.julinkova@changefitness.cz',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K']},
+ {n:'Vašek Říha',img:'vasek',i:'VŘ',c:'#706E6E',b:['T']},
+ {n:'Kamila Juříčková',img:'kamila',i:'KJ',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.',b:['T']},
+ {n:'Andrea Tobiaszová',img:'andrea',i:'AT',c:'#FF7F50',q:'Funkční pohyb v každém věku.',b:['T']},
+ {n:'Aneta Jarůšková',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
+ {n:'Aneta Julinková',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K']},
  {n:'Martin Tříska',i:'MT',c:'#3598DB',b:['K']},
- {n:'Petr Vlk',mail:'p.vlk@changefitness.cz',img:'vlk',i:'PV',c:'#1B9447',b:['K']}
+ {n:'Petr Vlk',img:'vlk',i:'PV',c:'#1B9447',b:['K']}
 ];
 // Lektoři skupinových lekcí, kteří nejsou osobní trenéři (jen pro počet ve statistice)
 const LEKTORI=['Libor Macháň','Jan Bezvoda','Mgr. Zuzana Sokolová','Petra Knoflíčková'];
@@ -886,7 +998,7 @@ function renderGrid(){
         <div class="card-actions"><button type="button" class="btn ghost" data-detail="${g.id}">Detail lekce</button>${occ?`<button type="button" class="btn" data-book="${occ.s.id}" data-date="${occ.date.getTime()}">Rezervovat <span class="arr">→</span></button>`:''}</div>
       </div></article>`}).join('');
   const note=$('#branchNote');
-  if(branch==='K'){note.hidden=false;note.innerHTML='Skupinové lekce probíhají v Change Fitness Tišnov. V Kuřimi tě čeká posilovna, funkční zóna a osobní tréninky.'}else note.hidden=true;
+  if(branch==='K'){note.hidden=false;note.innerHTML='<span><b>Skupinové lekce probíhají pouze v Tišnově</b> – sál máme jen tam. V Kuřimi tě čeká posilovna, funkční zóna a osobní tréninky.</span><button type="button" data-switch="T">Přepnout na Tišnov</button>'}else note.hidden=true;
 }
 
 // quick booking
@@ -902,7 +1014,7 @@ function renderSlots(){
   $('#qbWhen').textContent=dayOff===0?'dnes?':dayOff===1?'zítra?':([3,4].includes(d.getDay())?'ve ':'v ')+(['neděli','pondělí','úterý','středu','čtvrtek','pátek','sobotu'][d.getDay()])+'?';
   const list=S.filter(s=>s.d===d.getDay()&&s.branch===branch).sort((a,b)=>toMin(a.s)-toMin(b.s));
   if(!list.length){
-    $('#slots').innerHTML=branch==='K'?`<div class="empty"><b>Kuřim</b><span>Skupinové lekce zatím vypisujeme jen v Tišnově. V Kuřimi je pro tebe posilovna, funkční zóna a osobní trenéři.</span><button type="button" class="btn ghost" data-switch="T">Zobrazit lekce v Tišnově</button></div>`:`<div class="empty"><b>Dnes volno</b><span>Tento den nemáme skupinové lekce. Fitko je otevřené.</span></div>`;return}
+    $('#slots').innerHTML=branch==='K'?`<div class="empty"><b>Lekce jen v Tišnově</b><span>Skupinové lekce probíhají pouze v Tišnově, sál máme jen tam. V Kuřimi je pro tebe posilovna, funkční zóna a osobní trenéři.</span><button type="button" class="btn ghost" data-switch="T">Zobrazit lekce v Tišnově</button></div>`:`<div class="empty"><b>Dnes volno</b><span>Tento den nemáme skupinové lekce. Fitko je otevřené.</span></div>`;return}
   $('#slots').innerHTML=list.map(s=>{
     const p=P[s.p];const start=new Date(d);start.setHours(...s.s.split(':').map(Number),0,0);const past=start<=now;
     const f=spots(s,dateKey(d));
@@ -936,17 +1048,61 @@ function renderLocs(){
 
 // static renders
 $('#zones').innerHTML=ZONES.map(([n,t,c,m])=>{const[k,p]=(m||'').split(':');const md=!m?'':k==='v'?`<video class="zm" data-lazy="media/${p}.mp4" poster="media/${p}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>`:`<img class="zm" src="media/${p}.webp" alt="" loading="lazy">`;return `<div class="zone" style="--c:${c}">${md}<h3>${n}</h3><p>${t}</p></div>`}).join('');
+let cspec='vse';
+function coachSpec(c){return c.spec&&c.spec.length?c.spec:[]}
 function renderCoaches(){
-$('#rail').innerHTML=COACHES.filter(c=>c.b.includes(branch)).map(c=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
-  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b></div>
-  <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>${c.q?`<q>${esc(c.q)}</q>`:''}
-  ${c.mail?`<div class="coach-links"><a class="link-cta" href="mailto:${c.mail}">Chci trénovat <span>→</span></a></div>`:''}</div></article>`).join('');
+  const list=COACHES.filter(c=>c.b.includes(branch));
+  const specs=[...new Set(list.flatMap(coachSpec))].sort((a,b)=>a.localeCompare(b,'cs'));
+  if(cspec!=='vse'&&!specs.includes(cspec))cspec='vse';
+  $('#cfilters').hidden=!specs.length;
+  $('#cfilters').innerHTML=specs.length?[`<button type="button" class="chip" data-cs="vse" aria-pressed="${cspec==='vse'}">Všechny specializace</button>`,...specs.map(s=>`<button type="button" class="chip" data-cs="${esc(s)}" aria-pressed="${cspec===s}">${esc(s)}</button>`)].join(''):'';
+  const shown=list.filter(c=>cspec==='vse'||coachSpec(c).includes(cspec));
+  $('#rail').innerHTML=shown.map((c,i)=>`<article class="coach${c.img?' has-photo':''}" style="--c:${c.c}">
+  <button type="button" class="coach-open" data-coach="${COACHES.indexOf(c)}" aria-label="Profil: ${esc(c.n)}"></button>
+  <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b><span class="coach-no">${String(i+1).padStart(2,'0')}</span></div>
+  <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>
+  ${coachSpec(c).length?`<p class="coach-tags">${coachSpec(c).map(esc).join(' · ')}</p>`:''}${c.q?`<q>${esc(c.q)}</q>`:''}
+  <div class="coach-links"><span class="link-cta">Profil trenéra <span>→</span></span></div></div></article>`).join('');
 }
+function openCoach(i){
+  const c=COACHES[i];lastFocus=document.activeElement;drawer.style.setProperty('--c',c.c);drawer.style.setProperty('--on',onColor(c.c));
+  const row=(k,v)=>v?`<div style="grid-column:1/-1"><dt>${k}</dt><dd>${esc(v).replace(/\n/g,'<br>')}</dd></div>`:'';
+  const kon=[c.tel?`<a href="tel:${c.tel.replace(/\s/g,'')}">${esc(c.tel)}</a>`:'',c.mail?`<a href="mailto:${c.mail}">${esc(c.mail)}</a>`:'',c.ig?`<a href="https://instagram.com/${c.ig.replace(/^@/,'')}" target="_blank" rel="noopener">Instagram @${esc(c.ig.replace(/^@/,''))}</a>`:''].filter(Boolean).join('<br>');
+  drawer.innerHTML=`<div class="d-hero d-coach">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="">`:''}<button type="button" class="d-close" data-close aria-label="Zavřít">✕</button><h2 id="dTitle">${c.n.split(' ').map(w=>`<span>${esc(w)}</span>`).join('')}</h2><p>${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p></div>
+  <div class="d-body">${c.o?`<p>${esc(c.o)}</p>`:'<p>Profil právě doplňujeme. Napiš nám a domluvíme ti první trénink.</p>'}
+   ${coachSpec(c).length?`<div class="d-tags">${coachSpec(c).map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:''}
+   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Praxe',c.praxe)}${row('Služby a ceny',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
+   <div><a class="btn" href="#kontakt" data-trener="${esc(c.n)}" data-close>Chci trénovat <span class="arr">→</span></a></div>
+  </div>`;
+  scrim.hidden=false;drawer.hidden=false;document.body.style.overflow='hidden';drawer.querySelector('.d-close').focus();
+}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-coach]');if(o){openCoach(+o.dataset.coach);return}const f=e.target.closest('[data-cs]');if(f){cspec=f.dataset.cs;renderCoaches()}});
 fetch('shop/products.json').then(r=>r.json()).then(d=>{const by={};d.produkty.forEach(p=>by[p.id]=p);
  $('#products').innerHTML=d.doporucene.map(id=>by[id]).filter(p=>p&&!p.skryt&&!p.koncept).map(p=>{const f=p.media.find(m=>m.typ==='foto'),v=p.media.find(m=>m.typ==='video'),src=f?f.src:(v?v.nahled:'');
  return `<a class="prod" href="shop/#${p.kategorie}"><div class="prod-img">${src?`<img src="${src.replace(/^\//,'')}" alt="${esc(p.nazev)}" loading="lazy">`:`<b>${esc(p.nazev)}</b>`}</div><div class="prod-body"><small>${esc(p.znacka)}</small><b>${esc(p.nazev)}</b><span class="price">${p.cena} Kč</span></div></a>`}).join('');}).catch(()=>{});
 $('#statSessions').textContent=S.length;
 $('#statCoaches').textContent=COACHES.length+LEKTORI.length;
+
+
+// recenze z Google (recenze.json)
+fetch('recenze.json').then(r=>r.json()).then(d=>{
+ $('#rvScores').innerHTML=d.profily.map(p=>`<a class="rv-score" href="${p.odkaz}" target="_blank" rel="noopener"><b>${p.hodnoceni} ★</b><span>${esc(p.pobocka)} · ${p.pocet} recenzí</span></a>`).join('');
+ $('#rvGrid').innerHTML=d.recenze.map(r=>`<article class="rv"><span class="st" aria-label="${r.hvezdy} z 5 hvězd">${'★'.repeat(r.hvezdy)}</span><p>„${esc(r.text)}“</p><footer><span>${esc(r.jmeno)}</span><span>${esc(r.pobocka)}</span></footer></article>`).join('');
+}).catch(()=>{});
+// kalendář akcí (akce.json)
+fetch('akce.json').then(r=>r.json()).then(d=>{
+ const M=['led','úno','bře','dub','kvě','čvn','čvc','srp','zář','říj','lis','pro'];const today=new Date();today.setHours(0,0,0,0);
+ const list=d.akce.map(a=>({...a,dt:new Date(a.datum+'T00:00')})).filter(a=>a.dt>=today).sort((a,b)=>a.dt-b.dt);
+ $('#evList').innerHTML=list.length?list.map(a=>`<a class="ev${a.nase?' nase':''}" href="${a.odkaz}" target="_blank" rel="noopener"><div class="ev-date">${a.dt.getDate()}.<small>${M[a.dt.getMonth()]} ${a.dt.getFullYear()} · ${DAYN[a.dt.getDay()]}</small></div><div><h3>${esc(a.nazev)}</h3><p>${esc(a.misto)}${a.trate?' · '+esc(a.trate):''}${a.pozn?' · '+esc(a.pozn):''}</p></div><span class="ev-go">Detail →</span></a>`).join(''):'<div class="empty"><b>Brzy doplníme</b><span>Nové akce chystáme.</span></div>';
+ $('#evNote').textContent='Termíny přebíráme z kalendáře '+(d.zdroj||'')+'. Před startem si je prosím ověř u pořadatele.';
+}).catch(()=>{});
+// kontaktní formulář (Netlify Forms)
+document.addEventListener('click',e=>{const a=e.target.closest('[data-trener]');if(!a)return;const s=$('#ctZajem');let o=[...s.options].find(x=>x.value==='Osobní trénink – '+a.dataset.trener);if(!o){o=new Option('Osobní trénink – '+a.dataset.trener);s.add(o)}s.value=o.value;});
+$('#ctForm')?.addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=$('#ctMsg'),b=f.querySelector('button');b.disabled=true;
+ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+ .then(r=>{if(!r.ok)throw 0;f.reset();m.hidden=false;m.textContent='Díky! Zprávu jsme dostali a brzy se ti ozveme.'})
+ .catch(()=>{m.hidden=false;m.textContent='Odeslání se nepovedlo. Napiš nám prosím na info@changefitness.cz nebo zavolej.'})
+ .finally(()=>b.disabled=false)});
 
 // reviews dots
 document.querySelector('.qdots')?.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('.qdots button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
