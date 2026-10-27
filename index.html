@@ -831,7 +831,7 @@ section{position:relative}
 const MEMBEX='https://rezervace.membex.cz/change-fitness';
 const DAYN=['NE','PO','ÚT','ST','ČT','PÁ','SO'];
 const DAYL=['neděle','pondělí','úterý','středa','čtvrtek','pátek','sobota'];
-const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['lokomoce','Lokomoce'],['deti','Děti']];
+const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['lokomoce-deti','Lokomoce děti'],['lokomoce-dospeli','Lokomoce pro dospělé a seniory'],['deti','Děti']];
 
 // Programs = individual lessons in the timetable (rozvrh 20. 9. 2026, Tišnov)
 const P={
@@ -846,11 +846,11 @@ const P={
  fitbox:{name:'Fitbox',c:'#AAE6CD',g:'fitbox'},
  kruhac:{name:'Kruháč',c:'#E7FEAC',g:'kruhac'},
  vital:{name:'Kruháč',c:'#E7FEAC',g:'kruhac'},
- aktiv:{name:'Lokomoce Aktiv 50+',c:'#DEFD01',g:'lokomoce'},
- start:{name:'Lokomoce Start 65+',c:'#D0EC01',g:'lokomoce'},
+ aktiv:{name:'Lokomoce Aktiv 50+',c:'#DEFD01',g:'lokomoce-dospeli'},
+ start:{name:'Lokomoce Start 65+',c:'#D0EC01',g:'lokomoce-dospeli'},
  dchf:{name:'Děti – Change Fitness',c:'#FEF5BA',g:'deti'},
- l34:{name:'Lokomoce děti 3–4',c:'#DEFD01',g:'lokomoce'},
- l57:{name:'Lokomoce děti 5–7',c:'#DEFD01',g:'lokomoce'}
+ l34:{name:'Lokomoce děti 3–4',c:'#DEFD01',g:'lokomoce-deti'},
+ l57:{name:'Lokomoce děti 5–7',c:'#DEFD01',g:'lokomoce-deti'}
 };
 const S=[
  ['start',1,'15:20','16:20','Mgr. Zuzana Sokolová'],
@@ -918,10 +918,14 @@ const G=[
   short:'Radost z pohybu, ne výkon. Zatímco děti cvičí, ty si můžeš dát trénink ve fitku.',
   long:'Pohybové lekce pro děti, kde hlavní roli hraje radost z pohybu. Přes hry a zábavné úkoly rozvíjíme koordinaci, obratnost a sílu. Děti – Change Fitness jsou pro děti 8–11 let.',
   who:'Děti 8–11 let.',what:'Hry, koordinace, obratnost, síla.',bring:'Sportovní oblečení, pití, přezůvky.',price:'2 950 Kč / pololetí',progs:['dchf']},
- {id:'lokomoce',name:'Lokomoce',tags:'Lokomoce Tišnov · děti, dospělí a senioři',cat:'lokomoce',c:'#DEFD01',int:1,
-  short:'Lekce spolku Lokomoce Tišnov u nás ve fitku. Pro děti 3–4 a 5–7 let i pro dospělé a seniory.',
-  long:'Lokomoce je samostatný pobočný spolek, který u nás vede 4 lekce týdně. Lokomoce Aktiv 50+ přidává kruhový trénink a vedené silové cvičení. Lokomoce Start 65+ rozvíjí pohyblivost, stabilitu a rovnováhu – i pro ty, kdo se k pohybu vracejí po delší pauze. Pro děti 3–4 a 5–7 let je „Hýbej se, rodino!“, které propojuje fyzioterapii a pohybovou terapii.',
-  who:'Děti 3–4 a 5–7 let, dospělí a senioři. První lekce je ukázková.',what:'Funkční pohyb, síla, rovnováha, radost z pohybu. Lekce vede pobočný spolek Lokomoce Tišnov.',bring:'Pohodlné oblečení, pití.',price:'2 500 Kč / pololetí',progs:['aktiv','start','l34','l57']}
+ {id:'lokomoce-deti',img:'lokomoce-deti',name:'Lokomoce děti',split:['Lokomoce','děti'],tags:'Lokomoce Tišnov · děti 3–4 a 5–7 let',cat:'lokomoce-deti',c:'#DEFD01',int:1,
+  short:'„Hýbej se, rodino!“ pro děti 3–4 a 5–7 let. Vede Petra Knoflíčková ze spolku Lokomoce Tišnov.',
+  long:'Lokomoce je samostatný pobočný spolek, který u nás vede lekce pro děti i dospělé. Dětské lekce „Hýbej se, rodino!“ pro děti 3–4 a 5–7 let propojují fyzioterapii a pohybovou terapii. Přes hru rozvíjí koordinaci, rovnováhu a radost z pohybu.',
+  who:'Děti 3–4 a 5–7 let. První lekce je ukázková.',what:'Hry, koordinace, rovnováha, radost z pohybu. Lekce vede pobočný spolek Lokomoce Tišnov.',bring:'Sportovní oblečení, pití, přezůvky.',price:'2 500 Kč / pololetí',progs:['l34','l57']},
+ {id:'lokomoce-dospeli',img:'lokomoce-dospeli',name:'Lokomoce pro dospělé a seniory',split:['Lokomoce','pro dospělé','a seniory'],tags:'Lokomoce Tišnov · Aktiv a Start',cat:'lokomoce-dospeli',c:'#D0EC01',int:1,
+  short:'Lokomoce Aktiv a Lokomoce Start. Vede Mgr. Zuzana Sokolová ze spolku Lokomoce Tišnov.',
+  long:'Lokomoce je samostatný pobočný spolek, který u nás vede lekce pro děti i dospělé. Lokomoce Aktiv přidává kruhový trénink a vedené silové cvičení. Lokomoce Start rozvíjí pohyblivost, stabilitu a rovnováhu – i pro ty, kdo se k pohybu vracejí po delší pauze.',
+  who:'Dospělí a senioři. Cviky přizpůsobujeme individuálním potřebám. První lekce je ukázková.',what:'Funkční pohyb, síla, rovnováha. Lekce vede pobočný spolek Lokomoce Tišnov.',bring:'Pohodlné oblečení, pití.',price:'2 500 Kč / pololetí',progs:['aktiv','start']}
 ];
 
 // Osobní trenéři podle pobočky (b: T = Tišnov, K = Kuřim)
