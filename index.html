@@ -744,7 +744,7 @@ section{position:relative}
       <div><h4>Vstupy</h4><p><span>Jednorázový vstup</span><span>165 Kč</span></p><p><span>Happy hours (Po–Pá 9:00–13:00)</span><span>130 Kč</span></p><p><span>Studenti / senioři</span><span>130 Kč</span></p><p><span>10 vstupů (platnost 2 měsíce)</span><span>1 390 Kč</span></p></div>
       <div><h4>Permanentky</h4><p><span>Měsíční</span><span>1 490 Kč</span></p><p><span>Měsíční happy hours</span><span>1 200 Kč</span></p><p><span>Měsíční studenti / senioři</span><span>1 200 Kč</span></p><p><span>Čtvrtletní</span><span>3 990 Kč</span></p><p><span>Půlroční</span><span>7 390 Kč</span></p><p><span>Roční</span><span>12 990 Kč</span></p></div>
     </div>
-    <p class="price-note">Ceny platí pro Tišnov i Kuřim. Bereme kartu Multisport bez časového omezení. Vstup od 15 let, mladší po domluvě s osobním trenérem. Děti Lokomoce (3–7 let) i Lokomoce pro dospělé 2 500 Kč / pololetí, Děti CHF (8+ let) 2 950 Kč / pololetí.</p>
+    <p class="price-note">Ceny platí pro Tišnov i Kuřim. Bereme kartu Multisport bez časového omezení. Vstup od 15 let, mladší po domluvě s osobním trenérem. Děti Lokomoce (3–7 let) i Lokomoce pro dospělé 2 500 Kč / pololetí, Děti CHF (8–11 let) 2 950 Kč / pololetí.</p>
   </div>
 </section>
 
@@ -831,7 +831,7 @@ section{position:relative}
 const MEMBEX='https://rezervace.membex.cz/change-fitness';
 const DAYN=['NE','PO','ÚT','ST','ČT','PÁ','SO'];
 const DAYL=['neděle','pondělí','úterý','středa','čtvrtek','pátek','sobota'];
-const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['lokomoce-dospeli','Lokomoce pro dospělé a seniory'],['lokomoce-deti','Děti Lokomoce 3–7 let'],['deti','Děti CHF 8+ let']];
+const CATS=[['all','Všechny'],['sila','Síla & kondice'],['formovani','Formování'],['pilates','Pilates & mobilita'],['box','Box'],['lokomoce-dospeli','Lokomoce pro dospělé a seniory'],['lokomoce-deti','Děti Lokomoce 3–7 let'],['deti','Děti CHF 8–11 let']];
 
 // Programs = individual lessons in the timetable (rozvrh 20. 9. 2026, Tišnov)
 const P={
@@ -848,7 +848,7 @@ const P={
  vital:{name:'Kruháč',c:'#E7FEAC',g:'kruhac'},
  aktiv:{name:'Lokomoce Aktiv 50+',c:'#DEFD01',g:'lokomoce-dospeli'},
  start:{name:'Lokomoce Start 65+',c:'#D0EC01',g:'lokomoce-dospeli'},
- dchf:{name:'Děti CHF 8+',c:'#FEF5BA',g:'deti'},
+ dchf:{name:'Děti CHF 8–11',c:'#FEF5BA',g:'deti'},
  l34:{name:'Lokomoce děti 3–4',c:'#DEFD01',g:'lokomoce-deti'},
  l57:{name:'Lokomoce děti 5–7',c:'#DEFD01',g:'lokomoce-deti'}
 };
@@ -922,10 +922,10 @@ const G=[
   short:'„Hýbej se, rodino!“ pro děti 3–4 a 5–7 let. Vede Petra Knoflíčková ze spolku Lokomoce Tišnov.',
   long:'Lokomoce je samostatný pobočný spolek, který u nás vede lekce pro děti i dospělé. Dětské lekce „Hýbej se, rodino!“ pro děti 3–4 a 5–7 let propojují fyzioterapii a pohybovou terapii. Přes hru rozvíjí koordinaci, rovnováhu a radost z pohybu.',
   who:'Děti 3–4 a 5–7 let. První lekce je ukázková.',what:'Hry, koordinace, rovnováha, radost z pohybu. Lekce vede pobočný spolek Lokomoce Tišnov.',bring:'Sportovní oblečení, pití, přezůvky.',price:'2 500 Kč / pololetí',progs:['l34','l57']},
- {id:'deti',img:'deti',name:'Děti CHF 8+ let',split:['Děti CHF','8+ let'],tags:'Change Fitness · děti od 8 let',cat:'deti',c:'#FEF5BA',int:1,
+ {id:'deti',img:'deti',name:'Děti CHF 8–11 let',split:['Děti CHF','8–11 let'],tags:'Change Fitness · děti 8–11 let',cat:'deti',c:'#FEF5BA',int:1,
   short:'Radost z pohybu, ne výkon. Zatímco děti cvičí, ty si můžeš dát trénink ve fitku.',
-  long:'Pohybové lekce pro děti, kde hlavní roli hraje radost z pohybu. Přes hry a zábavné úkoly rozvíjíme koordinaci, obratnost a sílu. Lekce Děti CHF jsou pro děti od 8 let.',
-  who:'Děti od 8 let.',what:'Hry, koordinace, obratnost, síla.',bring:'Sportovní oblečení, pití, přezůvky.',price:'2 950 Kč / pololetí',progs:['dchf']}
+  long:'Pohybové lekce pro děti, kde hlavní roli hraje radost z pohybu. Přes hry a zábavné úkoly rozvíjíme koordinaci, obratnost a sílu. Lekce Děti CHF jsou pro děti 8–11 let.',
+  who:'Děti 8–11 let.',what:'Hry, koordinace, obratnost, síla.',bring:'Sportovní oblečení, pití, přezůvky.',price:'2 950 Kč / pololetí',progs:['dchf']}
 ];
 
 // Osobní trenéři podle pobočky (b: T = Tišnov, K = Kuřim)
