@@ -930,8 +930,20 @@ const COACHES=[
  {n:'Kamila Juříčková',img:'kamila',i:'KJ',c:'#5F7896',q:'Nejdu proti tobě. Jdu s tebou za tvou lepší verzí.',b:['T']},
  {n:'Andrea Tobiaszová',img:'andrea',i:'AT',c:'#FF7F50',q:'Funkční pohyb v každém věku.',b:['T']},
  {n:'Aneta Jarůšková',img:'jaruskova',i:'AJ',c:'#F7557E',q:'Disciplína je víc než motivace.',b:['T','K']},
- {n:'Aneta Julinková',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K']},
+ {n:'Aneta Julinková',img:'julinkova',i:'AJ',c:'#FEC8DF',q:'Pohyb, který dává tělu smysl.',b:['K'],
+  spec:['Osobní tréninky','Hubnutí','Nabírání svalové hmoty','Silový trénink','Funkční trénink','Kondice a HYROX','Formování postavy','Zdravá záda a rehabilitace','Senioři','Děti a mládež','Online coaching','Výživa a jídelníčky','Suplementace','Pilates a mobilita','Tréninky ve dvojici','Kruhový trénink','Core trénink','Silová a kondiční příprava sportovců','Tréninkové plány'],
+  o:'Jsem trenérka s akreditací MŠMT a ve své práci propojuji silový trénink, funkční pohyb, Pilates a principy zdravého pohybu. Mám certifikaci DNS – Dynamická neuromuskulární stabilizace a vzdělání v oblasti Pilates Reformer, cvičení v těhotenství a po porodu a práce s pánevním dnem.\n\nPrávě díky tomuto zaměření mě baví pracovat i s lidmi, kteří se ke cvičení vracejí po úrazech, operacích nebo se zdravotními obtížemi a potřebují najít cestu zpět k bezpečnému a sebejistému pohybu.',
+  kdo:'Stále více se zaměřuji na lidi se zdravotními obtížemi, po operacích nebo úrazech a na návrat k bezpečnému a smysluplnému pohybu. Zajímá mě, jak tělo funguje jako celek a jak mu pomocí správně zvoleného pohybu můžeme pomoci nejen zesílit, ale také lépe fungovat v běžném životě.\n\nVelkým tématem je pro mě také trénink žen v různých životních obdobích. Každé tělo má jiné potřeby a ty se během života mění – od těhotenství a období po porodu až po období menopauzy. Věřím, že pohyb má ženám pomáhat cítit se ve svém těle dobře v každém věku, ne je nutit bojovat proti němu.',
+  cert:'Instruktor fitness – akreditace MŠMT, certifikovaná trenérka DNS, kurz pánevní dno, kurz závěsné systémy TRX, Pilates Reformer, trénink žen v těhotenství a po porodu, kurz manuálních technik – trigger pointy, kurz kineziotejpování, kurz hluboký stabilizační systém, kurz flexibilita a mobilita',
+  praxe:'8 let',
+  sluzby:'Všechny uvedené specializace, navíc trénink žen v těhotenství a po porodu, kompenzační cvičení, trénink po úrazech a operacích (ideálně ve spolupráci s fyzioterapeutem) – návrat do tréninku po zranění, trénink začátečníků.',
+  tel:'737 975 700',ig:'an.nyy'},
  {n:'Martin Tříska',i:'MT',c:'#3598DB',b:['K']},
+ {n:'Petr Kluska',i:'PK',c:'#E64D3D',b:['K'],q:'The body achieves what the mind believes.',
+  spec:['Osobní tréninky','Nabírání svalové hmoty','Silový trénink','Online coaching','Výživa a jídelníčky','Tréninkové plány'],
+  o:'Za 14 let tréninku jsem se věnoval thajskému boxu, vzpírání, obecnému silovému tréninku a nyní kulturistice. Pravidelně se vzdělávám v oblasti silového i hypertrofního tréninku od těch nejlepších v oboru.',
+  cert:'Instruktor fitness – Fitness institut',praxe:'2 roky',sluzby:'Osobní trénink, online coaching, jídelníček',
+  tel:'731 866 467',mail:'petr.kluska@gmail.com',ig:'petr.kluska.fitness'},
  {n:'Petr Vlk',img:'vlk',i:'PV',c:'#1B9447',b:['K']}
 ];
 // Lektoři skupinových lekcí, kteří nejsou osobní trenéři (jen pro počet ve statistice)
@@ -1068,7 +1080,7 @@ function renderCoaches(){
   <button type="button" class="coach-open" data-coach="${COACHES.indexOf(c)}" aria-label="Profil: ${esc(c.n)}"></button>
   <div class="coach-por">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="${esc(c.n)}" loading="lazy">`:''}<b>${c.i}</b><span class="coach-no">${String(i+1).padStart(2,'0')}</span></div>
   <div class="coach-body"><p class="spec">${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p><h3>${esc(c.n)}</h3>
-  ${coachSpec(c).length?`<p class="coach-tags">${coachSpec(c).map(esc).join(' · ')}</p>`:''}${c.q?`<q>${esc(c.q)}</q>`:''}
+  ${coachSpec(c).length?`<p class="coach-tags">${coachSpec(c).slice(0,4).map(esc).join(' · ')}${coachSpec(c).length>4?` <span>+${coachSpec(c).length-4}</span>`:''}</p>`:''}${c.q?`<q>${esc(c.q)}</q>`:''}
   <div class="coach-links"><span class="link-cta">Profil trenéra <span>→</span></span></div></div></article>`).join('');
 }
 function openCoach(i){
@@ -1076,9 +1088,9 @@ function openCoach(i){
   const row=(k,v)=>v?`<div style="grid-column:1/-1"><dt>${k}</dt><dd>${esc(v).replace(/\n/g,'<br>')}</dd></div>`:'';
   const kon=[c.tel?`<a href="tel:${c.tel.replace(/\s/g,'')}">${esc(c.tel)}</a>`:'',c.mail?`<a href="mailto:${c.mail}">${esc(c.mail)}</a>`:'',c.ig?`<a href="https://instagram.com/${c.ig.replace(/^@/,'')}" target="_blank" rel="noopener">Instagram @${esc(c.ig.replace(/^@/,''))}</a>`:''].filter(Boolean).join('<br>');
   drawer.innerHTML=`<div class="d-hero d-coach">${c.img?`<img class="photo" src="img/trener-${c.img}.jpg?v=2" alt="">`:''}<button type="button" class="d-close" data-close aria-label="Zavřít">✕</button><h2 id="dTitle">${c.n.split(' ').map(w=>`<span>${esc(w)}</span>`).join('')}</h2><p>${c.n.endsWith('á')?'Osobní trenérka':'Osobní trenér'} · ${c.b.map(x=>x==='T'?'Tišnov':'Kuřim').join(' & ')}</p></div>
-  <div class="d-body">${c.o?`<p>${esc(c.o)}</p>`:'<p>Profil právě doplňujeme. Napiš nám a domluvíme ti první trénink.</p>'}
+  <div class="d-body">${c.o?c.o.split('\n\n').map(x=>`<p>${esc(x)}</p>`).join(''):'<p>Profil právě doplňujeme. Napiš nám a domluvíme ti první trénink.</p>'}
    ${coachSpec(c).length?`<div class="d-tags">${coachSpec(c).map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:''}
-   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Praxe',c.praxe)}${row('Služby',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
+   <dl class="d-facts">${row('Motto',c.q)}${row('S kým nejraději pracuje',c.kdo)}${row('Vzdělání a certifikace',c.cert)}${row('Trénuje',c.praxe)}${row('Služby',c.sluzby)}${kon?`<div style="grid-column:1/-1"><dt>Kontakt</dt><dd>${kon}</dd></div>`:''}</dl>
    <div><a class="btn" href="#kontakt" data-trener="${esc(c.n)}" data-close>Chci trénovat <span class="arr">→</span></a></div>
   </div>`;
   scrim.hidden=false;drawer.hidden=false;document.body.style.overflow='hidden';drawer.querySelector('.d-close').focus();
