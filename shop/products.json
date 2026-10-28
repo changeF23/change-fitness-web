@@ -141,7 +141,12 @@
    "cena": 59,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/nocco-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -165,7 +170,12 @@
    "cena": 52,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/nutrend-carnitine-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -177,7 +187,12 @@
    "cena": 52,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/vilgain-elektrolyty-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -298,7 +313,12 @@
    "cena": 20,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/czech-virus-creatine-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -335,6 +355,24 @@
    ],
    "skryt": false,
    "koncept": false
+  },
+  {
+   "id": "extrifit-express",
+   "nazev": "Extrifit Express energy gel",
+   "znacka": "Extrifit",
+   "kategorie": "vyziva",
+   "cena": null,
+   "popis": "",
+   "varianty": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/extrifit-express-1.webp"
+    }
+   ],
+   "skryt": false,
+   "koncept": true,
+   "poznamka_interni": "Doplnit cenu – produkt nebyl v ceníku."
   },
   {
    "id": "nitrox",
@@ -409,24 +447,34 @@
   {
    "id": "nut-butter-cups",
    "nazev": "Nut Butter Cups",
-   "znacka": "",
+   "znacka": "Vilgain",
    "kategorie": "snacky",
    "cena": 49,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/nut-butter-cups-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
   {
    "id": "nut-butter-cups-pistacie",
    "nazev": "Nut Butter Cups Pistácie",
-   "znacka": "",
+   "znacka": "Vilgain",
    "kategorie": "snacky",
    "cena": 59,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/nut-butter-cups-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -489,7 +537,7 @@
    "znacka": "Change Fitness",
    "kategorie": "merch",
    "cena": 590,
-   "popis": "Tričko Change Fitness.",
+   "popis": "Černé tričko Change Fitness – vpředu „Change Fitness est. 2023“, na zádech „Čas na změnu“.",
    "varianty": [
     {
      "nazev": "Dámské S"
@@ -498,7 +546,20 @@
      "nazev": "Pánské M"
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/tricko-2.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/tricko-3.webp"
+    },
+    {
+     "typ": "foto",
+     "src": "/media/shop/tricko-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
