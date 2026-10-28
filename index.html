@@ -2,6 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
+<script>(function(h){var p=h.indexOf('tisnov.')===0?'tisnov':h.indexOf('kurim.')===0?'kurim':null;if(p)location.replace('https://changefitness.cz/?pobocka='+p);else if(h.indexOf('www.')===0)location.replace('https://changefitness.cz'+location.pathname+location.search+location.hash)})(location.hostname)</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Change Fitness Tišnov &amp; Kuřim | Posilovna, fitness a skupinové lekce</title>
 <meta name="description" content="Change Fitness – moderní posilovna a skupinové lekce v Tišnově a Kuřimi. Hybrid Workout, Power Pilates, HIIT, TRX, box, kruháč, Lokomoce i lekce pro děti. Rezervuj si lekci online.">
@@ -777,6 +778,7 @@ section{position:relative}
     <form class="ct-form" name="kontakt" method="POST" action="/dekujeme.html" data-netlify="true" netlify-honeypot="bot-field" id="ctForm">
       <input type="hidden" name="form-name" value="kontakt">
       <p hidden><label>Nevyplňuj: <input name="bot-field"></label></p>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <label>Jméno a příjmení<input name="jmeno" required autocomplete="name"></label>
       <div class="ct-row">
         <label>Telefon<input name="telefon" type="tel" required autocomplete="tel" inputmode="tel"></label>
@@ -1124,7 +1126,7 @@ fetch('akce.json').then(r=>r.json()).then(d=>{
 // kontaktní formulář (Netlify Forms)
 document.addEventListener('click',e=>{const a=e.target.closest('[data-trener]');if(!a)return;const s=$('#ctZajem');let o=[...s.options].find(x=>x.value==='Osobní trénink – '+a.dataset.trener);if(!o){o=new Option('Osobní trénink – '+a.dataset.trener);s.add(o)}s.value=o.value;});
 $('#ctForm')?.addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=$('#ctMsg'),b=f.querySelector('button');b.disabled=true;
- fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+ fetch('https://formsubmit.co/ajax/info@changefitness.cz',{method:'POST',headers:{'Accept':'application/json'},body:(()=>{const d=new FormData(f);d.delete('form-name');d.delete('bot-field');d.append('_subject','Nová zpráva z webu changefitness.cz');d.append('_template','table');d.append('_captcha','false');return d})()})
  .then(r=>{if(!r.ok)throw 0;f.reset();m.hidden=false;m.textContent='Díky! Zprávu jsme dostali a brzy se ti ozveme.'})
  .catch(()=>{m.hidden=false;m.textContent='Odeslání se nepovedlo. Napiš nám prosím na info@changefitness.cz nebo zavolej.'})
  .finally(()=>b.disabled=false)});
