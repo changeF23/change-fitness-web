@@ -2,6 +2,10 @@
  "_navod": "Pořadí produktů = pořadí v seznamu. Pořadí médií = pořadí v poli media (první je hlavní). skryt:true produkt schová. koncept:true = neověřené údaje, na webu se nezobrazí. stitek = krátký štítek na kartě (např. Pouze letní sezóna).",
  "kategorie": [
   {
+   "id": "merch",
+   "nazev": "Merch & doplňky"
+  },
+  {
    "id": "kava",
    "nazev": "Káva & speciality"
   },
@@ -16,10 +20,6 @@
   {
    "id": "snacky",
    "nazev": "Fitness snacky"
-  },
-  {
-   "id": "merch",
-   "nazev": "Merch & doplňky"
   }
  ],
  "produkty": [
@@ -129,7 +129,12 @@
    "cena": 50,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/monster-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -158,7 +163,12 @@
    "cena": 49,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/red-bull-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -211,7 +221,12 @@
      "nazev": "Fanta"
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/cola-fanta-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -223,7 +238,12 @@
    "cena": 25,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/natura-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -235,7 +255,12 @@
    "cena": 30,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/rajec-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
@@ -375,18 +400,6 @@
    "poznamka_interni": "Doplnit cenu – produkt nebyl v ceníku."
   },
   {
-   "id": "nitrox",
-   "nazev": "Nitrox",
-   "znacka": "",
-   "kategorie": "vyziva",
-   "cena": 40,
-   "popis": "",
-   "varianty": [],
-   "media": [],
-   "skryt": false,
-   "koncept": false
-  },
-  {
    "id": "double-trouble",
    "nazev": "Double Trouble",
    "znacka": "Vilgain",
@@ -435,12 +448,17 @@
   {
    "id": "energy-ball",
    "nazev": "Energy Ball",
-   "znacka": "",
+   "znacka": "Vilgain",
    "kategorie": "snacky",
    "cena": 42,
    "popis": "",
    "varianty": [],
-   "media": [],
+   "media": [
+    {
+     "typ": "foto",
+     "src": "/media/shop/energy-ball-1.webp"
+    }
+   ],
    "skryt": false,
    "koncept": false
   },
