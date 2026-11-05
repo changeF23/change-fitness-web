@@ -58,6 +58,15 @@
    "misto": "Vranov",
    "trate": "půlmaraton",
    "odkaz": "https://gotrail.run/cs/akce/vranovska-jarni-pulka"
+  },
+  {
+   "datum": "2026-11-28",
+   "nazev": "Zimní MX / MTB soustředění",
+   "misto": "Change Fitness Tišnov",
+   "trate": "15–25 let · 1 590 Kč",
+   "odkaz": "/soustredeni/",
+   "nase": true,
+   "pozn": "naše akce"
   }
  ]
 }

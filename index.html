@@ -1120,7 +1120,7 @@ fetch('recenze.json').then(r=>r.json()).then(d=>{
 fetch('akce.json').then(r=>r.json()).then(d=>{
  const M=['led','úno','bře','dub','kvě','čvn','čvc','srp','zář','říj','lis','pro'];const today=new Date();today.setHours(0,0,0,0);
  const list=d.akce.map(a=>({...a,dt:new Date(a.datum+'T00:00')})).filter(a=>a.dt>=today).sort((a,b)=>a.dt-b.dt);
- $('#evList').innerHTML=list.length?list.map(a=>`<a class="ev${a.nase?' nase':''}" href="${a.odkaz}" target="_blank" rel="noopener"><div class="ev-date">${a.dt.getDate()}.<small>${M[a.dt.getMonth()]} ${a.dt.getFullYear()} · ${DAYN[a.dt.getDay()]}</small></div><div><h3>${esc(a.nazev)}</h3><p>${esc(a.misto)}${a.trate?' · '+esc(a.trate):''}${a.pozn?' · '+esc(a.pozn):''}</p></div><span class="ev-go">Detail →</span></a>`).join(''):'<div class="empty"><b>Brzy doplníme</b><span>Nové akce chystáme.</span></div>';
+ $('#evList').innerHTML=list.length?list.map(a=>`<a class="ev${a.nase?' nase':''}" href="${a.odkaz}"${a.nase?'':' target="_blank" rel="noopener"'}><div class="ev-date">${a.dt.getDate()}.<small>${M[a.dt.getMonth()]} ${a.dt.getFullYear()} · ${DAYN[a.dt.getDay()]}</small></div><div><h3>${esc(a.nazev)}</h3><p>${esc(a.misto)}${a.trate?' · '+esc(a.trate):''}${a.pozn?' · '+esc(a.pozn):''}</p></div><span class="ev-go">${a.nase?'Přihlásit se →':'Detail →'}</span></a>`).join(''):'<div class="empty"><b>Brzy doplníme</b><span>Nové akce chystáme.</span></div>';
  $('#evNote').textContent='Termíny přebíráme z kalendáře '+(d.zdroj||'')+'. Před startem si je prosím ověř u pořadatele.';
 }).catch(()=>{});
 // kontaktní formulář (Netlify Forms)
